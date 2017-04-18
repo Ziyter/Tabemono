@@ -1,0 +1,35 @@
+<?php
+class classSmarty {
+   // static $db=false;
+    static function &getSmarty()
+    {
+       define('SMARTY_DIR', 'C:\OpenServer\domains\tabemono\guestbook\libs/');
+       require_once(SMARTY_DIR . 'Smarty.class.php');
+
+       $smarty = new Smarty();
+       
+       $smarty->template_dir = 'C:\openserver\domains\tabemono\guestbook\templates/';
+       $smarty->compile_dir = 'C:\openserver\domains\tabemono\guestbook\templates_c/';
+       $smarty->config_dir = 'C:\openserver\domains\tabemono\guestbook\configs/';
+       $smarty->cache_dir = 'C:\openserver\domains\tabemono\guestbook\cache/';
+       $smarty->caching = false;
+       return $smarty;
+    }
+    
+    static function &getDB($user,$pass)
+    {
+        static $db=false;
+        try 
+        {
+            if(empty($db)) {
+                $connectdb="mysql:host=tabemono.ru;dbname=Foods"; //192.168.1.37
+                $db = new PDO($connectdb, $user, $pass);
+            }
+        }
+        catch (PDOException $e)
+        {
+            die("Error:".$e->getMessage());
+        }
+        return $db;
+    }
+}

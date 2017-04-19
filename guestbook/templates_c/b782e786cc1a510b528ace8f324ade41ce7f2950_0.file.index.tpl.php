@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-18 17:28:55
+/* Smarty version 3.1.30, created on 2017-04-19 16:07:45
   from "C:\openserver\domains\tabemono\guestbook\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f622a71ebd25_06502847',
+  'unifunc' => 'content_58f76121044593_09704164',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b782e786cc1a510b528ace8f324ade41ce7f2950' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\guestbook\\templates\\index.tpl',
-      1 => 1492525730,
+      1 => 1492607263,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58f622a71ebd25_06502847 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f76121044593_09704164 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -171,7 +171,7 @@ function content_58f622a71ebd25_06502847 (Smarty_Internal_Template $_smarty_tpl)
     </div>
   </div>
       <div id="blockB">
-      <div id="content">               
+      <div id="contentB">               
         <div class="owl-carousel owl-theme">
             <div class="item"><a href="#"><img src="img/image-min.jpg"></a></div>
             <div class="item"><a href="#"><img src="img/image2-min.jpg"></a></div>
@@ -235,7 +235,10 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
         <?php echo '<script'; ?>
  src="js/bootstrap.min.js" ><?php echo '</script'; ?>
 >
-        <?php echo $_smarty_tpl->tpl_vars['JS']->value;?>
+       <!--  <?php echo '<script'; ?>
+ type="text/javascript" src="/min/b=js&amp;f=jquery.min.js,funcs.js,tether.min.js,bootstrap.min.js"><?php echo '</script'; ?>
+>
+         -->   <?php echo $_smarty_tpl->tpl_vars['JS']->value;?>
 
         </footer>
     </div>

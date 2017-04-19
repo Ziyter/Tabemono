@@ -1,9 +1,6 @@
 $(document).ready(function() {
             var menu_active=false;
             var menu=false;
- 
-//var contentHeight = $(document).height() -  50;
-//$('#blockB').css('height', contentHeight);
 
   //Если размер экрана - декстоп, то корзина будет открыватся в модальном окне       
   win_size();      
@@ -35,6 +32,7 @@ $(document).ready(function() {
     });
         };
         
+ try{       
     //Инициализация слайда
  var owl = $('.owl-carousel');         
      owl.owlCarousel({
@@ -61,6 +59,8 @@ $(document).ready(function() {
         }
     }
 });
+ }
+ catch(e){}
 
 //Листание слайда с помощью колесика мыши
  owl.on('mousewheel', '.owl-stage', function (e) {

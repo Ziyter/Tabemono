@@ -8,7 +8,7 @@ class classSmarty {
 
        $smarty = new Smarty();
        
-       $smarty->template_dir = 'C:\openserver\domains\tabemono\guestbook\templates/';
+       $smarty->template_dir = 'C:\openserver\domains\tabemono\templates/';
        $smarty->compile_dir = 'C:\openserver\domains\tabemono\guestbook\templates_c/';
        $smarty->config_dir = 'C:\openserver\domains\tabemono\guestbook\configs/';
        $smarty->cache_dir = 'C:\openserver\domains\tabemono\guestbook\cache/';

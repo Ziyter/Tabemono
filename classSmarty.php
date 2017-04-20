@@ -13,6 +13,7 @@ class classSmarty {
        $smarty->config_dir = 'C:\openserver\domains\tabemono\guestbook\configs/';
        $smarty->cache_dir = 'C:\openserver\domains\tabemono\guestbook\cache/';
        $smarty->caching = false;
+       $smarty->error_reporting = E_ALL & ~E_NOTICE;
        return $smarty;
     }
     

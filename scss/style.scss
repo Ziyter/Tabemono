@@ -183,7 +183,6 @@ $large: 750px;
 
 
 body,html {
-    //height: 100%;
     font-family: helvetica;
     font-weight: 100;
 }
@@ -554,6 +553,7 @@ body,html {
     body,html{
         overflow: auto;
         overflow-x:hidden;
+        height: 100%;
     }
     #right{
         display: none;
@@ -577,7 +577,7 @@ body,html {
     } 
 
     #header{
-        border-radius: 5px 0 0 5px;
+        border-radius: 5px 5px 5px 5px;
     }
 
     #contentB{
@@ -592,7 +592,7 @@ body,html {
 
 #login{
     padding: 20% 0;
-    width: 80%;
+    width: 90%;
     margin: auto;
 
     h3{
@@ -617,13 +617,21 @@ body,html {
     }
 }
 
-@media (min-width:582px) {
+@media (min-width:582px){
     #login{
         padding:0;
-        width: 30%;
-        margin: 50px 100px 100px 100px;
+        margin: 50px 100px auto 100px;
     }
 }
 
+@media (min-width:882px)  {
+    #login{
+        width: 50%;
+    }
+}
 
-
+@media (min-width:582px) and (max-width:882px)  {
+    #login{
+        width: 80%;
+    }
+}

@@ -8,6 +8,17 @@ Header append Vary User-Agent
 </IfModule>
 
 
+<IfModule mod_rewrite.c> 
+RewriteEngine On 
+Options +FollowSymlinks 
+RewriteBase / 
+
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule ^(.*)$ index.php [L,QSA] 
+</IfModule>
+
+
 <ifModule mod_expires.c>  
 
 #включение заголовка Expires, указывающего время устаревания файла

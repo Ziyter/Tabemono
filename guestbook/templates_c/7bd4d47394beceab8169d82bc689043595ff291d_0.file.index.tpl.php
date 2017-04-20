@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-19 19:33:58
+/* Smarty version 3.1.30, created on 2017-04-20 16:28:29
   from "C:\openserver\domains\tabemono\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f791768c1899_51842893',
+  'unifunc' => 'content_58f8b77daf30d8_20821185',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58f791768c1899_51842893 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f8b77daf30d8_20821185 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="owl-carousel owl-theme">
     <div class="item"><a href="#"><img src="img/image-min.jpg"></a></div>

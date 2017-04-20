@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-19 17:12:28
+/* Smarty version 3.1.30, created on 2017-04-20 19:35:16
   from "C:\openserver\domains\tabemono\templates\footer.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f7704cad5486_69240640',
+  'unifunc' => 'content_58f8e344d05fb1_37837585',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58f7704cad5486_69240640 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58f8e344d05fb1_37837585 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <footer>  
     <?php echo '<script'; ?>

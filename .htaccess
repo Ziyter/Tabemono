@@ -18,7 +18,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L,QSA] 
 </IfModule>
 
-
 <ifModule mod_expires.c>  
 
 #включение заголовка Expires, указывающего время устаревания файла

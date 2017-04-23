@@ -119,16 +119,19 @@ $(document).ready(function () {
 //Маска телефона
     $('#phone').keyup(function () {
         var value = $('#phone').val();
-        phone = "+7(";
+        phone = "+";
         value = value.replace(/[^0-9]/gim, '');
-        value = (value.length !== 1) ? value.slice(1) : value;
+        //value = (value.length !== 1) ? value.slice(1) : value;
         for (var i = 0; i < value.length; i++) {
             switch (i) {
-                case 3:
+                case 1:
+                    phone += "(";
+                    break;
+                case 4:
                     phone += ") ";
                     break;
-                case 6:
-                case 8:
+                case 7:
+                case 9:
                     phone += "-";
                     break;
             }
@@ -136,4 +139,52 @@ $(document).ready(function () {
         }
         $('#phone').val(phone);
     });
+
+    $("#email").keyup(function () {
+        checkemail();
+    });
+    $("#email").change(function () {
+        checkemail();
+        if (!$("#email").hasClass("form-control-warning"))
+            $.post(
+                    "../PHPfuncs/checkemail.php",
+                    {
+                        email: $("#email").val()
+                    },
+                    onAjaxSuccess
+                    );
+        function onAjaxSuccess(data)
+        {
+           if (data==0){
+           $("#emailblock").addClass("has-success");
+            $("#email").addClass("form-control-success"); 
+            $("#emailblock").removeClass("has-warning");
+            $("#email").removeClass("form-control-warning");
+            $("#emaildes").text("");
+           }
+           else{
+            $("#emailblock").removeClass("has-warning");
+            $("#email").removeClass("form-control-warning");
+            $("#emailblock").addClass("has-danger");
+            $("#email").addClass("form-control-danger");
+            $("#emaildes").text("Такой email уже зарегистрирован");
+           }
+        }
+    });
+
+    function checkemail() {
+        var mail = $("#email").val();
+        if (!isValidEmailAddress(mail)) {
+            $("#emailblock").addClass("has-warning");
+            $("#email").addClass("form-control-warning");
+        } else {
+            $("#emailblock").removeClass("has-warning");
+            $("#email").removeClass("form-control-warning");
+        }
+    }
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+        return pattern.test(emailAddress);
+    }
 });

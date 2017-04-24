@@ -3,22 +3,20 @@
 require '../classSmarty.php';
 ob_start();
 header('Content-Type: text/html; charset=utf-8');
-//setcookie("login","0");
 ob_end_flush();
 
-//Функция очистки строк от лишних символов
-function clean($value = "") {
-    $value = trim($value);
-    $value = stripslashes($value);
-    $value = strip_tags($value);
-    $value = htmlspecialchars($value);
-    return $value;
-}
-
-$namef = clean(filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS));
+$namef = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $passwordf = password_hash(filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS), PASSWORD_BCRYPT);
-$phonef = preg_replace("/[^0-9]/", '', clean(filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS)));
+$phonef = preg_replace("/[^0-9]/", '', filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS));
 $emailf = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+
+$url = 'https://www.google.com/recaptcha/api/siteverify?secret=6LdPcB4UAAAAAH5UcRSfjGQPfLLr_tONt4Ue0gmK&response=' . (array_key_exists('g-recaptcha-response', $_POST) ? $_POST["g-recaptcha-response"] : '') . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
+$resp = json_decode(file_get_contents($url), true);
+
+if ($resp['success'] == false) {
+    header("Location: " . $_SERVER['HTTP_REFERER']);
+    exit;
+}
 
 if (empty($namef) && empty($passwordf) && empty($phonef) && empty($emailf)) {
     exit;
@@ -49,7 +47,6 @@ if (empty($namef) && empty($passwordf) && empty($phonef) && empty($emailf)) {
 <button onClick="window.location=\'index.php\'">Далее
 <body>
 </body>';
-    } else
-        echo "<script>alert('Такой логин уже есть'); window.location.href='" . $_SERVER['HTTP_REFERER'] . "'</script>";
+    }
 }
 ?>

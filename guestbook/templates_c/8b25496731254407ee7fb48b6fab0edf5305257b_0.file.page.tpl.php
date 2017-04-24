@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-20 19:35:16
+/* Smarty version 3.1.30, created on 2017-04-24 15:23:52
   from "C:\openserver\domains\tabemono\templates\page.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f8e344903e21_90015087',
+  'unifunc' => 'content_58fdee58abcb91_00657816',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b25496731254407ee7fb48b6fab0edf5305257b' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\page.tpl',
-      1 => 1492618486,
+      1 => 1493036525,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_58f8e344903e21_90015087 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58fdee58abcb91_00657816 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -38,7 +38,9 @@ function content_58f8e344903e21_90015087 (Smarty_Internal_Template $_smarty_tpl)
            <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
         <link type="text/css" rel="stylesheet" href="/min/b=css&amp;f=style.css,bootstrap.min.css?v=1" />
         <?php echo $_smarty_tpl->tpl_vars['CSS']->value;?>
-  
+
+        <?php echo $_smarty_tpl->tpl_vars['JS_HEAD']->value;?>
+
     </head>
     <body>
         <div class="container-full">

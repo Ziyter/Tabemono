@@ -1,14 +1,14 @@
 <div id="login">
     <h3>Вход</h3>
-    <form role="form" method="post">
+    <form action="PHPfuncs/aut.php" role="form" method="post">
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" >
+            <input type="email" name="log" class="form-control" id="email" >
 {*            <p class="help-block">Пример строки с подсказкой</p>*}
         </div>
         <div class="form-group">
             <label for="pass">Пароль</label>
-            <input type="password" class="form-control" id="pass" >
+            <input type="password" name="pass" class="form-control" id="pass" >
         </div>
         <div class="checkbox">
             <label><input type="checkbox"> Запомнить компьютер</label>

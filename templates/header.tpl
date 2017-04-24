@@ -26,7 +26,7 @@
     </div>
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-7" id="user-div">
         <center>
-            <a href="/login" id="bt-user">
+            <a href="/user" id="bt-user">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="54" height="48" viewBox="2 1 30 30">
                     <path id="user" d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z">
                     </path>

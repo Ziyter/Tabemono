@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-20 19:23:31
+/* Smarty version 3.1.30, created on 2017-04-24 14:48:19
   from "C:\openserver\domains\tabemono\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f8e083012362_40318175',
+  'unifunc' => 'content_58fde60389e9c3_90917056',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54020190304138143a1a2ec842c27cf05f3df312' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\header.tpl',
-      1 => 1492705382,
+      1 => 1493034496,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58f8e083012362_40318175 (Smarty_Internal_Template $_smarty_tpl) {
+function content_58fde60389e9c3_90917056 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="header" class="row">
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-1">
@@ -50,7 +50,7 @@ function content_58f8e083012362_40318175 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-7" id="user-div">
         <center>
-            <a href="/login" id="bt-user">
+            <a href="/user" id="bt-user">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="54" height="48" viewBox="2 1 30 30">
                     <path id="user" d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z">
                     </path>

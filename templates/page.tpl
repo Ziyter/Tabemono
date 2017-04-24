@@ -9,7 +9,8 @@
         <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
            <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
         <link type="text/css" rel="stylesheet" href="/min/b=css&amp;f=style.css,bootstrap.min.css?v=1" />
-        {$CSS}  
+        {$CSS}
+        {$JS_HEAD}
     </head>
     <body>
         <div class="container-full">

@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require 'classSmarty.php';
 $smarty = classSmarty::getSmarty();
 
@@ -8,6 +9,7 @@ error_reporting(E_ALL);
 
 $css = "<link type=\"text/css\" rel=\"stylesheet\" href=\"/min/b=owlcarousel&amp;f=owl.carousel.min.css,owl.theme.default.min.css\" />";
 $js = "<script type=\"text/javascript\" src=\"/min/f=owlcarousel/owl.carousel.min.js,OwlCarousel\mousewheel.js\"></script>";
+$js_captcha = "<script type=\"text/javascript\" src='https://www.google.com/recaptcha/api.js'></script>";
 $str = 0;
 $module = 'index';
 $action = 'index';
@@ -54,13 +56,19 @@ if (empty($module)) {
             $smarty->assign('TITLE', "Главная");
             $smarty->assign('TPL_NAME', "index");
             break;
-        case 'login':
-            $smarty->assign('TITLE', "Вход");
-            $smarty->assign('TPL_NAME', "login");
+        case 'user':
+            if (isset($_SESSION['name'])) {
+                $smarty->assign('TITLE', "Личный кабинет");
+                $smarty->assign('TPL_NAME', "personal_cabinet");
+            } else {
+                $smarty->assign('TITLE', "Вход");
+                $smarty->assign('TPL_NAME', "login");
+            }
             break;
         case 'registr':
             $smarty->assign('TITLE', "Регистрация");
             $smarty->assign('TPL_NAME', "registr");
+            $smarty->assign('JS_HEAD', $js_captcha);
             break;
         default:
             $smarty->assign('TITLE', "Ошибка");

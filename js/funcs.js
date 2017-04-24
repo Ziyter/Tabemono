@@ -119,21 +119,115 @@ $(document).ready(function () {
 //Маска телефона
     $('#phone').keyup(function () {
         var value = $('#phone').val();
-        phone = "+7(";
+        phone = "+";
         value = value.replace(/[^0-9]/gim, '');
-        value = (value.length !== 1) ? value.slice(1) : value;
+        //value = (value.length !== 1) ? value.slice(1) : value;
         for (var i = 0; i < value.length; i++) {
             switch (i) {
-                case 3:
+                case 1:
+                    phone += "(";
+                    break;
+                case 4:
                     phone += ") ";
                     break;
-                case 6:
-                case 8:
+                case 7:
+                case 9:
                     phone += "-";
                     break;
             }
             phone += value[i];
         }
         $('#phone').val(phone);
+    });
+
+//Проверка email адреса
+    $("#email").keyup(function () {
+        checkemail();
+    });
+    $("#email").change(function () {
+        checkemail();
+        if (!$("#email").hasClass("form-control-warning"))
+            $.post(
+                    "../PHPfuncs/checkemail.php",
+                    {
+                        email: $("#email").val()
+                    },
+                    onAjaxSuccess
+                    );
+
+        function onAjaxSuccess(data)
+        {
+            if (data == 0) {
+                $("#emailblock").addClass("has-success");
+                $("#email").addClass("form-control-success");
+                $("#emailblock").removeClass("has-warning");
+                $("#email").removeClass("form-control-warning");
+                $("#emaildes").text("Email свободен");
+                $("#emailblock").removeClass("has-danger");
+                $("#email").removeClass("form-control-danger");
+            } else {
+                $("#emailblock").removeClass("has-warning");
+                $("#email").removeClass("form-control-warning");
+                $("#emailblock").addClass("has-danger");
+                $("#email").addClass("form-control-danger");
+                $("#emaildes").text("Такой email уже зарегистрирован");
+            }
+        }
+    });
+
+    function checkemail() {
+        var mail = $("#email").val();
+        if (!isValidEmailAddress(mail)) {
+            $("#emailblock").addClass("has-warning");
+            $("#email").addClass("form-control-warning");
+        } else {
+            $("#emailblock").removeClass("has-warning");
+            $("#email").removeClass("form-control-warning");
+        }
+    }
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+        return pattern.test(emailAddress);
+    }
+
+    $("#pass_again").keyup(function () {
+        checkpass();
+    });
+    $("[name=pass]").keyup(function () {
+        checkpass();
+    });
+
+    function checkpass() {
+        if ($("#pass_again").val().length >= 8)
+            if ($("#pass_again").val() === $("[name=pass]").val()) {
+                $("#passblock").addClass("has-success");
+                $("[name=pass]").addClass("form-control-success");
+                $("#pass_againblock").addClass("has-success");
+                $("#pass_again").addClass("form-control-success");
+                $("#passblock").removeClass("has-danger");
+                $("[name=pass]").removeClass("form-control-danger");
+                $("#pass_againblock").removeClass("has-danger");
+                $("#pass_again").removeClass("form-control-danger");
+                return;
+            }
+        $("#passblock").removeClass("has-success");
+        $("[name=pass]").removeClass("form-control-success");
+        $("#pass_againblock").removeClass("has-success");
+        $("#pass_again").removeClass("form-control-success");
+        $("#passblock").addClass("has-danger");
+        $("[name=pass]").addClass("form-control-danger");
+        $("#pass_againblock").addClass("has-danger");
+        $("#pass_again").addClass("form-control-danger");
+    }
+
+    $('.alert').hide();
+    var captcha = false;
+
+    $('#reg').submit(function () {
+        if (!$("#email").hasClass("form-control-success") || !$("[name=pass]").hasClass("form-control-success")) {
+            $('.alert').show();
+            return false;
+        }
     });
 });

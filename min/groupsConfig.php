@@ -13,6 +13,5 @@
 
 return array(
     // 'js' => array('//js/file1.js', '//js/file2.js'),
-     'css_owl' => array('//owlcarousel/owl.carousel.min.css', 
-                    '//owlcarousel/owl.theme.default.min.css'),
+    // 'css' => array('//css/file1.css', '//css/file2.css'),
 );

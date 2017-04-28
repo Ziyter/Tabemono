@@ -11,10 +11,11 @@
     {foreach from=$row item=str}
         <div  class="col-12 col-md-6 col-lg-4">
             <a data-toggle="modal"  data-target="#my1Modal"><img  width="130" height="130" src="img\goods\crop\{$str.img}"></a>
-                                                                  <div id="des">{$str.name} <br> 
+                 <div id="des">{$str.name} <br> 
                 <span id="price">
                     {$str.price} <f class="rubl">о</f> 
-                </span>   
+                </span> 
+                <div id="{$str.id_item}" class="icons plus"></div>
         </div>
     </div>
 {/foreach}

@@ -68,12 +68,14 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
     //Перемещение меню
     function  move_menu(cls) {
         var toggle_el = $("#bt").attr("data-toggle");
         $(toggle_el).toggleClass(cls);
         $("#sidebar").toggleClass(cls);
         $("#right").toggleClass(cls);
+        $(".back_block").toggleClass("show_b");
         menu_active = !menu_active;
     }
 
@@ -82,14 +84,47 @@ $(document).ready(function () {
         move_menu("open-sidebar");
         menu = true;
     });
+
+    //Открытие корзины и отображение данных
     $("#bt-cart").click(function () {
-        if ($(window).width() <= '582') {
+        $.post(
+                "../PHPfuncs/showBasket.php",
+                ajax
+                );
+        function ajax(data) {
+            showBasket(data);
+        }
+
+        function showBasket(data) {
+            obj = jQuery.parseJSON(data);
+            if ($(window).width() <= '582') {
+                mobile_basket(obj);
+            }
+        }
+        function mobile_basket(obj) {
+            var summa = 0;
+            $(".items_elem").remove();
+            obj.forEach(function (entry) {
+                var name = entry.name;
+                var quantity = entry.quantity;
+                var price = entry.price;
+                var img = "<img  width='60' height='60' src='img/goods/crop/"+entry.img+"'>";
+                summa += price * quantity;
+                $("#items_list").append("<li class='items_elem'>\n\
+                        <div style='width:120px; float:left;'>" + name + "<br> Цена: " + price +
+                        "<f class='rubl'>о</f>\n\
+                         </div>\n\
+                          <div style='float:right;'>"+img+"</div></li>");
+            });
+            $("#count_items").text(obj.length);
+            $("#summa_items").text(summa);
             move_menu("open-sidebarright");
             $(".clcart").toggleClass("active");
             menu = false;
         }
     });
-//Открытие меню не по кнопке
+
+//закрытие меню не по кнопке
     $(document).bind("touchend", function (e) {
         side_menu(e);
     });
@@ -222,12 +257,32 @@ $(document).ready(function () {
     }
 
     $('.alert').hide();
-    var captcha = false;
 
     $('#reg').submit(function () {
-        if (!$("#email").hasClass("form-control-success") || !$("[name=pass]").hasClass("form-control-success")) {
-            $('.alert').show();
-            return false;
+        $('.alert').hide();
+        var verif = true;
+        if ($("#g-recaptcha-response").val() === "") {
+            $('#captcha').show();
+            verif = false;
         }
+        if (!$("#email").hasClass("form-control-success") || !$("[name=pass]").hasClass("form-control-success")) {
+            $('#data').show();
+            verif = false;
+        }
+        return verif;
+    });
+
+//---------------------------------------
+//---------Товары
+//---------------------------------------
+
+//Добавление в корзину
+    $('.icons').click(function () {
+        id = this.getAttribute("id");
+
+        $.post(
+                "../PHPfuncs/changebasket.php",
+                {id: id, act: 1},
+                );
     });
 });

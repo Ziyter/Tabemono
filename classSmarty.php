@@ -1,6 +1,6 @@
 <?php
 class classSmarty {
-   // static $db=false;
+    static $db;
     static function &getSmarty()
     {
        define('SMARTY_DIR', 'C:\OpenServer\domains\tabemono\guestbook\libs/');
@@ -19,12 +19,12 @@ class classSmarty {
     
     static function &getDB($user,$pass)
     {
-        static $db=false;
+        //static $db;
         try 
         {
             if(empty($db)) {
                 $connectdb="mysql:host=tabemono.ru;dbname=Foods"; //192.168.1.37
-                $db = new PDO($connectdb, $user, $pass);
+                $db = new PDO($connectdb, $user, $pass); //array(PDO::ATTR_PERSISTENT => true)
             }
         }
         catch (PDOException $e)

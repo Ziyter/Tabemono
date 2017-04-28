@@ -1,3 +1,4 @@
+php_value session.gc_maxlifetime 86400
 ### —жать ответ сервера дл€ перечисленных MIME типов
 
 <IfModule mod_deflate.c>

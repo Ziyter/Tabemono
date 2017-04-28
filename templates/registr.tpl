@@ -1,10 +1,6 @@
 <div id="login">
     <div class="container">
         <form id="reg" action="PHPfuncs/action.php" method="post">
-            <div class="alert alert-warning">
-                <span class="close" onclick="$('.alert').hide();">×</span>
-                Введены неверные данные
-            </div>
             <div class="form-group row">
                 <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Имя</label>
                 <div class="col-sm-7 col-lg-8">
@@ -42,8 +38,18 @@
                     <small class="form-text text-muted"></small>
                 </div>
             </div>
-            <div class="g-recaptcha" data-sitekey="6LdPcB4UAAAAAIrbdr1oTzmmYJX9VLp8vJoaP3nA"></div>
+            <div id="cap" class="g-recaptcha" data-sitekey="6LdPcB4UAAAAAIrbdr1oTzmmYJX9VLp8vJoaP3nA"></div>
             <div class="text-danger" id="recaptchaError"></div><br>
+            <div id="data" class="alert alert-warning">
+                <span class="close" onclick="$('#data').hide();">×</span>
+                Введены неверные данные 
+            </div>
+            <div id="captcha" class="alert alert-warning">
+                <span class="close" onclick="$('#captcha').hide();">×</span>
+                Пройдите проверку на бота!
+            </div>
+                        <div class="icon-plus"></div>
+            <div class="icon-success"></div>
             <div class="row">
                 <button type="submit" class="btn btn-orange col-md-5 col-sm-5">Зарегистрироватся</button>&nbsp;&nbsp;
                 <button type="reset" id="res" class="btn btn-orange col-md-5 col-sm-5">Сбросить</button>

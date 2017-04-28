@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-20 16:28:29
+/* Smarty version 3.1.30, created on 2017-04-27 16:59:25
   from "C:\openserver\domains\tabemono\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58f8b77daf30d8_20821185',
+  'unifunc' => 'content_5901f93dabe1b4_02364002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7bd4d47394beceab8169d82bc689043595ff291d' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\index.tpl',
-      1 => 1492618486,
+      1 => 1493301369,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58f8b77daf30d8_20821185 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5901f93dabe1b4_02364002 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="owl-carousel owl-theme">
     <div class="item"><a href="#"><img src="img/image-min.jpg"></a></div>
@@ -40,12 +40,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['str']->value) {
         <div  class="col-12 col-md-6 col-lg-4">
             <a data-toggle="modal"  data-target="#my1Modal"><img  width="130" height="130" src="img\goods\crop\<?php echo $_smarty_tpl->tpl_vars['str']->value['img'];?>
 "></a>
-                                                                  <div id="des"><?php echo $_smarty_tpl->tpl_vars['str']->value['name'];?>
+                 <div id="des"><?php echo $_smarty_tpl->tpl_vars['str']->value['name'];?>
  <br> 
                 <span id="price">
                     <?php echo $_smarty_tpl->tpl_vars['str']->value['price'];?>
  <f class="rubl">о</f> 
-                </span>   
+                </span> 
+                <div id="<?php echo $_smarty_tpl->tpl_vars['str']->value['id_item'];?>
+" class="icons plus"></div>
         </div>
     </div>
 <?php

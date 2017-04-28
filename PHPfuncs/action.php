@@ -13,7 +13,7 @@ $emailf = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 $url = 'https://www.google.com/recaptcha/api/siteverify?secret=6LdPcB4UAAAAAH5UcRSfjGQPfLLr_tONt4Ue0gmK&response=' . (array_key_exists('g-recaptcha-response', $_POST) ? $_POST["g-recaptcha-response"] : '') . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
 $resp = json_decode(file_get_contents($url), true);
 
-if ($resp['success'] == false) {
+if (!$resp['success']) {
     header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
 }

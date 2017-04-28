@@ -31,11 +31,8 @@
     </ul>
 </div>
 <div id="right">
-    <ul>
-        <li><div id="sum">Всего товаров: 2<br> Сумма заказа: 200 <f class="rubl">о</f> </div></li>
-        <li><a href="#">Explore</a></li>
-        <li><a href="#">Users</a></li>
-        <li><a href="#">Sign Out</a></li>
-        <li><a href="#">Sign Out</a></li>
+    <ul id="items_list">
+        <li><div id="sum">Всего товаров: <span id="count_items"></span><br> Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f> </div></li>
     </ul>
 </div> 
+<div class="back_block"></div>

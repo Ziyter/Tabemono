@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-27 16:59:25
+/* Smarty version 3.1.30, created on 2017-04-30 16:55:06
   from "C:\openserver\domains\tabemono\templates\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5901f93dabe1b4_02364002',
+  'unifunc' => 'content_5905ecba875765_46915323',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7bd4d47394beceab8169d82bc689043595ff291d' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\index.tpl',
-      1 => 1493301369,
+      1 => 1493560503,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5901f93dabe1b4_02364002 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5905ecba875765_46915323 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="owl-carousel owl-theme">
     <div class="item"><a href="#"><img src="img/image-min.jpg"></a></div>
@@ -37,41 +37,50 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['str']->value) {
 ?>
-        <div  class="col-12 col-md-6 col-lg-4">
-            <a data-toggle="modal"  data-target="#my1Modal"><img  width="130" height="130" src="img\goods\crop\<?php echo $_smarty_tpl->tpl_vars['str']->value['img'];?>
+        <div class="col-6 col-md-4 col-lg-3 heig">
+            <table id="items_list">
+                <tr><td>
+                        <a data-toggle="modal"  data-target="#my1Modal">
+                            <img  width="130" height="130" src="img\goods\crop\<?php echo $_smarty_tpl->tpl_vars['str']->value['img'];?>
 "></a>
-                 <div id="des"><?php echo $_smarty_tpl->tpl_vars['str']->value['name'];?>
- <br> 
-                <span id="price">
-                    <?php echo $_smarty_tpl->tpl_vars['str']->value['price'];?>
+                                  </td></tr>
+                                  <tr><td>
+                                  <div id="des"><?php echo $_smarty_tpl->tpl_vars['str']->value['name'];?>
+<br>
+                            <div class="addbasket">
+                                <span id="price"> Цена:
+                                    <?php echo $_smarty_tpl->tpl_vars['str']->value['price'];?>
  <f class="rubl">о</f> 
-                </span> 
-                <div id="<?php echo $_smarty_tpl->tpl_vars['str']->value['id_item'];?>
-" class="icons plus"></div>
+                                </span> 
+                                <div id_item="<?php echo $_smarty_tpl->tpl_vars['str']->value['id_item'];?>
+" class="icons plus addkorz">Беру</div>
+                            </div>
+                            </div>
+                    </td></tr>
+            </table>
         </div>
-    </div>
-<?php
+    <?php
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
-<div id="my1Modal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
-                Всего товаров: 200000<div>Сумма заказа: 100000 <f class="rubl">о</f>    
-                </div></div>
-            <div class="modal-body">Текст уведомления</div>
-            <div class="modal-body">Текст уведомления</div>
-            <div class="modal-body">Текст уведомления</div>
-            <div class="modal-body">Текст уведомления</div>
-            <div class="modal-footer">
-                <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+    <div id="my1Modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                    Всего товаров: 200000<div>Сумма заказа: 100000 <f class="rubl">о</f>    
+                    </div></div>
+                <div class="modal-body">Текст уведомления</div>
+                <div class="modal-body">Текст уведомления</div>
+                <div class="modal-body">Текст уведомления</div>
+                <div class="modal-body">Текст уведомления</div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 

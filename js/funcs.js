@@ -85,7 +85,9 @@ $(document).ready(function () {
         menu = true;
     });
 
-    //Открытие корзины и отображение данных
+/////////////////////////////////////
+//-------------КОРЗИНА-----------///
+///////////////////////////////////
     $("#bt-cart").click(function () {
         $.post(
                 "../PHPfuncs/showBasket.php",
@@ -101,26 +103,57 @@ $(document).ready(function () {
                 mobile_basket(obj);
             }
         }
+
         function mobile_basket(obj) {
-            var summa = 0;
             $(".items_elem").remove();
             obj.forEach(function (entry) {
                 var name = entry.name;
                 var quantity = entry.quantity;
                 var price = entry.price;
-                var img = "<img  width='60' height='60' src='img/goods/crop/"+entry.img+"'>";
-                summa += price * quantity;
-                $("#items_list").append("<li class='items_elem'>\n\
-                        <div style='width:120px; float:left;'>" + name + "<br> Цена: " + price +
-                        "<f class='rubl'>о</f>\n\
-                         </div>\n\
-                          <div style='float:right;'>"+img+"</div></li>");
+                var inputnum = "<input id_item='" + entry.id_item + "' class='inputnum' size='2' type='number' min='1' \n\
+                                max='20' value='" + entry.quantity + "'>";
+                var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
+                $("#items_list").append("<tr class='items_elem'>\n\
+                            <td>" + img + "</td>\n\
+                        <td>" + name + "<br>Количество: " + inputnum + "<br>\n\
+                    Цена: " + price + "<f class='rubl'>о</f></td>\n\
+                                </tr>"
+                        );
             });
             $("#count_items").text(obj.length);
-            $("#summa_items").text(summa);
+            summa_order();
             move_menu("open-sidebarright");
             $(".clcart").toggleClass("active");
             menu = false;
+
+            //Устанавливаем обработчик на изменение количества
+            $('.inputnum').on('change', function () {
+                var id = $(this).attr('id_item');
+                var val = $(this).val();
+                $.post(
+                        "../PHPfuncs/changebasket.php",
+                        {id: id, act: 2, value: val},
+                        );
+                summa_order();
+            });
+        }
+        /**
+         * Вычисление общей стоймости заказа
+         */
+        function summa_order() {
+            var summa = 0;
+            $.post(
+                    "../PHPfuncs/showBasket.php",
+                    {act: 1},
+                    sum
+                    );
+            function sum(data) {
+                obj = jQuery.parseJSON(data);
+                obj.forEach(function (entry) {
+                    summa += entry.price * entry.quantity;
+                });
+                $("#summa_items").text(summa);
+            }
         }
     });
 
@@ -147,9 +180,9 @@ $(document).ready(function () {
         }
     }
 
-//---------------------------------------
-//---------Регистрация
-//---------------------------------------
+//////////////////////////////////////////
+//---------Регистрация-----------------//
+////////////////////////////////////////
 
 //Маска телефона
     $('#phone').keyup(function () {
@@ -282,7 +315,7 @@ $(document).ready(function () {
 
         $.post(
                 "../PHPfuncs/changebasket.php",
-                {id: id, act: 1},
+                {id: id, act: 1, value: 1},
                 );
     });
 });

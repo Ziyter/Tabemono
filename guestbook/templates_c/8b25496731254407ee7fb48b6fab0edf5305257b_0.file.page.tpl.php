@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-27 16:10:47
+/* Smarty version 3.1.30, created on 2017-04-30 16:49:37
   from "C:\openserver\domains\tabemono\templates\page.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5901edd7b44793_95758797',
+  'unifunc' => 'content_5905eb7172f903_71654802',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b25496731254407ee7fb48b6fab0edf5305257b' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\page.tpl',
-      1 => 1493298644,
+      1 => 1493560146,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5901edd7b44793_95758797 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5905eb7172f903_71654802 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ru">

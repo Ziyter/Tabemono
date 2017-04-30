@@ -6,21 +6,29 @@ $db = classSmarty::getDB('user', 'user');
 
 $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
 $act = filter_input(INPUT_POST, "act", FILTER_VALIDATE_INT);
-$quanity=1;
+$quanity = filter_input(INPUT_POST, "value", FILTER_VALIDATE_INT);
 
 if (isset($_SESSION['name'])) {
-    if (!empty($id)&&!empty($act)) {
+    if (!empty($id) && !empty($act)) {
         try {
-        switch($act){
-            case 1:
-               $st = $db->prepare("insert into basket values(?,?,?,?)"); 
-                break;
-        }
-        $st->bindParam(1, $_SESSION['id']);
-        $st->bindParam(2, $id);
-        $st->bindParam(3, $quanity);
-        $st->bindParam(4, round(microtime(true) * 1000));
-        $st->execute();
+            switch ($act) {
+                case 1:
+                    $st = $db->prepare("insert into basket values(?,?,?,?)");
+                    $st->bindParam(1, $_SESSION['id']);
+                    $st->bindParam(2, $id);
+                    $st->bindParam(3, $quanity);
+                    $st->bindParam(4, round(microtime(true) * 1000));
+                    break;
+                case 2:
+                    $st = $db->prepare("UPDATE basket 
+                        SET quantity = ?
+                        WHERE id_user=? and id_item=?;");
+                    $st->bindParam(1, $quanity);
+                    $st->bindParam(2, $_SESSION['id']);
+                    $st->bindParam(3, $id);
+                    break;
+            }
+            $st->execute();
         } catch (PDOException $e) {
             echo "Ошибка: " . $e->getMessage();
         }

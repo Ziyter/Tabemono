@@ -330,7 +330,7 @@ $(document).ready(function () {
 
         $.post(
                 "../PHPfuncs/changebasket.php",
-                {id: id, act: 1, value: 1},
+                {id: id, act: 1, value: -1},
                 );
     });
 });

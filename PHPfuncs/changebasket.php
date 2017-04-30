@@ -11,6 +11,14 @@ $quanity = filter_input(INPUT_POST, "value", FILTER_VALIDATE_INT);
 if (isset($_SESSION['name'])) {
     if (!empty($id) && !empty($act)) {
         try {
+            $st = $db->prepare("select quantity from basket WHERE id_user=? and id_item=?;");
+            $st->bindParam(1, $_SESSION['id']);
+            $st->bindParam(2, $id);
+            $st->execute();
+            if($st->rowCount()>0){
+                $act=2;
+                $quanity=$st->fetchColumn()+1;
+            }
             switch ($act) {
                 case 1:
                     $st = $db->prepare("insert into basket values(?,?,?,?)");

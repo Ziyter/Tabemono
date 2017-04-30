@@ -100,31 +100,38 @@ $(document).ready(function () {
         function showBasket(data) {
             obj = jQuery.parseJSON(data);
             if ($(window).width() <= '582') {
-                mobile_basket(obj);
+                mobile_basket(obj,true);
             }
         }
 
-        function mobile_basket(obj) {
+        function mobile_basket(obj, i) {
             $(".items_elem").remove();
+            var summa = 0;
+            var general_quantity=0
             obj.forEach(function (entry) {
+                var id = entry.id_item;
                 var name = entry.name;
                 var quantity = entry.quantity;
-                var price = entry.price;
-                var inputnum = "<input id_item='" + entry.id_item + "' class='inputnum' size='2' type='number' min='1' \n\
-                                max='20' value='" + entry.quantity + "'>";
+                var price = entry.price * quantity;
+                summa += price;
+                general_quantity+=+quantity;
+                var inputnum = "<input id_item='" + id + "' class='inputnum' size='2' type='number' min='1' \n\
+                                max='20' value='" + quantity + "'>";
                 var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
                 $("#items_list").append("<tr class='items_elem'>\n\
                             <td>" + img + "</td>\n\
                         <td>" + name + "<br>Количество: " + inputnum + "<br>\n\
-                    Цена: " + price + "<f class='rubl'>о</f></td>\n\
+                    Цена: <span id='pritem_" + id + "'>" + price + "</span><f class='rubl'>о</f></td>\n\
                                 </tr>"
                         );
             });
-            $("#count_items").text(obj.length);
-            summa_order();
-            move_menu("open-sidebarright");
-            $(".clcart").toggleClass("active");
-            menu = false;
+            $("#count_items").text(general_quantity);
+            $("#summa_items").text(summa);
+            if (i) {
+                move_menu("open-sidebarright");
+                $(".clcart").toggleClass("active");
+                menu = false;
+            }
 
             //Устанавливаем обработчик на изменение количества
             $('.inputnum').on('change', function () {
@@ -134,27 +141,35 @@ $(document).ready(function () {
                         "../PHPfuncs/changebasket.php",
                         {id: id, act: 2, value: val},
                         );
-                summa_order();
+                $.post(
+                        "../PHPfuncs/showBasket.php",
+                        update
+                        );
+                function update(data) {
+                    obj = jQuery.parseJSON(data);
+                    mobile_basket(obj,false);
+                }
+//                price=$("#pritem_"+id).text()*val;
+//                $("#pritem_"+id).text(price+"");
             });
         }
         /**
          * Вычисление общей стоймости заказа
          */
-        function summa_order() {
-            var summa = 0;
-            $.post(
-                    "../PHPfuncs/showBasket.php",
-                    {act: 1},
-                    sum
-                    );
-            function sum(data) {
-                obj = jQuery.parseJSON(data);
-                obj.forEach(function (entry) {
-                    summa += entry.price * entry.quantity;
-                });
-                $("#summa_items").text(summa);
-            }
-        }
+//        function summa_order() {
+//            var summa = 0;
+//            $.post(
+//                    "../PHPfuncs/showBasket.php",
+//                    {act: 1},
+//                    sum
+//                    );
+//            function sum(data) {
+//                obj = jQuery.parseJSON(data);
+//                obj.forEach(function (entry) {
+//                    summa += entry.price * entry.quantity;
+//                });
+//            }
+//        }
     });
 
 //закрытие меню не по кнопке
@@ -311,7 +326,7 @@ $(document).ready(function () {
 
 //Добавление в корзину
     $('.icons').click(function () {
-        id = this.getAttribute("id");
+        id = this.getAttribute("id_item");
 
         $.post(
                 "../PHPfuncs/changebasket.php",

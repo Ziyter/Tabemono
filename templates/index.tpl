@@ -21,7 +21,7 @@
                                 <span id="price"> Цена:
                                     {$str.price} <f class="rubl">о</f> 
                                 </span> 
-                                <div id_item="{$str.id_item}" class="icons plus addkorz">Беру</div>
+                                <div id_item="{$str.id_item}" act='1' class="icons plus addkorz">Беру</div>
                             </div>
                             </div>
                     </td></tr>

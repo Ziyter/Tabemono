@@ -100,33 +100,44 @@ $(document).ready(function () {
         function showBasket(data) {
             obj = jQuery.parseJSON(data);
             if ($(window).width() <= '582') {
-                mobile_basket(obj,true);
+                mobile_basket(obj, true);
             }
         }
 
         function mobile_basket(obj, i) {
             $(".items_elem").remove();
             var summa = 0;
-            var general_quantity=0
-            obj.forEach(function (entry) {
-                var id = entry.id_item;
-                var name = entry.name;
-                var quantity = entry.quantity;
-                var price = entry.price * quantity;
-                summa += price;
-                general_quantity+=+quantity;
-                var inputnum = "<input id_item='" + id + "' class='inputnum' size='2' type='number' min='1' \n\
+            var general_quantity = 0;
+            if (obj.length > 0) {
+                obj.forEach(function (entry) {
+                    $("#empty").remove();
+                    var id = entry.id_item;
+                    var name = entry.name;
+                    var quantity = entry.quantity;
+                    var price = entry.price * quantity;
+                    summa += price;
+                    general_quantity += +quantity;
+                    var inputnum = "<input id_item='" + id + "' class='inputnum' size='2' type='number' min='1' \n\
                                 max='20' value='" + quantity + "'>";
-                var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
-                $("#items_list").append("<tr class='items_elem'>\n\
+                    var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
+                    $("#items_list").append("<tr class='items_elem'>\n\
                             <td>" + img + "</td>\n\
-                        <td>" + name + "<br>Количество: " + inputnum + "<br>\n\
+                        <td>" + name + "<br>Количество: " + inputnum + "<div id_item='" + id + "' act='3' class='icons del_basket'></div><br>\n\
                     Цена: <span id='pritem_" + id + "'>" + price + "</span><f class='rubl'>о</f></td>\n\
                                 </tr>"
-                        );
-            });
+                            );
+                });
+            } else {
+                $("#right").prepend("<div id='empty'><h3>Корзина пуста<br> Добавьте товары</h3></div>");
+            }
             $("#count_items").text(general_quantity);
             $("#summa_items").text(summa);
+            if (summa > 400) {
+                $('#bt_order').attr("disabled", false);
+            } else {
+                $('#bt_order').attr("disabled", true);
+
+            }
             if (i) {
                 move_menu("open-sidebarright");
                 $(".clcart").toggleClass("active");
@@ -145,31 +156,36 @@ $(document).ready(function () {
                         "../PHPfuncs/showBasket.php",
                         update
                         );
-                function update(data) {
-                    obj = jQuery.parseJSON(data);
-                    mobile_basket(obj,false);
-                }
-//                price=$("#pritem_"+id).text()*val;
-//                $("#pritem_"+id).text(price+"");
+            });
+
+            function update(data) {
+                obj = jQuery.parseJSON(data);
+                mobile_basket(obj, false);
+            }
+
+            $('.del_basket').on('click', function () {
+                id = this.getAttribute("id_item");
+                act = this.getAttribute("act");
+                $.post(
+                        "../PHPfuncs/changebasket.php",
+                        {id: id, act: act, value: -1},
+                        );
+                $.post(
+                        "../PHPfuncs/showBasket.php",
+                        update
+                        );
             });
         }
-        /**
-         * Вычисление общей стоймости заказа
-         */
-//        function summa_order() {
-//            var summa = 0;
-//            $.post(
-//                    "../PHPfuncs/showBasket.php",
-//                    {act: 1},
-//                    sum
-//                    );
-//            function sum(data) {
-//                obj = jQuery.parseJSON(data);
-//                obj.forEach(function (entry) {
-//                    summa += entry.price * entry.quantity;
-//                });
-//            }
-//        }
+    });
+
+    //Добавление в корзину
+    $('.icons').click(function () {
+        id = this.getAttribute("id_item");
+        act = this.getAttribute("act");
+        $.post(
+                "../PHPfuncs/changebasket.php",
+                {id: id, act: act, value: -1},
+                );
     });
 
 //закрытие меню не по кнопке
@@ -324,13 +340,4 @@ $(document).ready(function () {
 //---------Товары
 //---------------------------------------
 
-//Добавление в корзину
-    $('.icons').click(function () {
-        id = this.getAttribute("id_item");
-
-        $.post(
-                "../PHPfuncs/changebasket.php",
-                {id: id, act: 1, value: -1},
-                );
-    });
 });

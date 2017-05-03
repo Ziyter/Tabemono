@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-30 14:41:17
+/* Smarty version 3.1.30, created on 2017-05-03 16:35:27
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5905cd5d3a0a52_20870494',
+  'unifunc' => 'content_5909dc9f65e398_76388759',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1493552472,
+      1 => 1493818524,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5905cd5d3a0a52_20870494 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5909dc9f65e398_76388759 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -56,7 +56,9 @@ function content_5905cd5d3a0a52_20870494 (Smarty_Internal_Template $_smarty_tpl)
 </div>
 <div id="right">
     <p>  Всего товаров: <span id="count_items"></span><br>
-    Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
+            Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
+            <button id='bt_order' type="button" disabled="true" class="btn btn-order col-md-5 col-sm-5">Оформить заказ</button>
+            <small>Минимальная сумма заказа от 400<f class="rubl">о</f></small>
     </p>
     <table id="items_list">
     </table>

@@ -335,6 +335,21 @@ body,html {
     -o-transition:   margin-left 0.4s ease-in-out;
     transition:  margin-left 0.4s ease-in-out;
 
+    h3{
+        color: white;
+        text-align: center;
+        padding: 20px 0 0 0;
+    }
+    #empty{
+        position: absolute;
+        width: 265px; 
+        background: -webkit-linear-gradient($backcolor);
+        background: -moz-linear-gradient($backcolor);
+        background: -o-linear-gradient($backcolor);
+        background: -ms-linear-gradient($backcolor);
+        height: 100%;
+        z-index: 99999;
+    }
     li.items_elem{
         font-size: 13px;
         height: 100px;
@@ -565,6 +580,21 @@ body,html {
     height: 20px;
     width:35px;
 }
+
+.btn-order { 
+    background-color:#fff; 
+    color:$backcolor_pas; 
+    border-color:$backcolor_pas;
+    cursor: pointer;
+} 
+/*.btn-order:hover, .btn-black:focus {
+    background-color: $backcolor_act*0.95; 
+    color: #FFFFFF;
+} 
+.btn-order:active { 
+    background-color: $backcolor_act;
+    color: #FFFFFF;
+}*/
 
 //Верстка под мобилку
 

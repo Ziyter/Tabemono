@@ -7,7 +7,7 @@ $act = filter_input(INPUT_POST, "act", FILTER_VALIDATE_INT);
 if (isset($_SESSION['name'])) {
     try {
         $st = $db->prepare("SELECT i.id_item,name,img,price,quantity "
-                ."FROM item i INNER JOIN basket b ON b.id_item = i.id_item AND id_user=? ORDER BY time");
+                ."FROM item i INNER JOIN basket b ON b.id_item = i.id_item AND id_user=? ORDER BY time DESC");
         $st->bindParam(1, $_SESSION['id']);
         $st->execute();
         $row = $st->fetchAll();

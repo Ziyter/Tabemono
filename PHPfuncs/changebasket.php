@@ -9,9 +9,10 @@ $act = filter_input(INPUT_POST, "act", FILTER_VALIDATE_INT);
 $quanity = filter_input(INPUT_POST, "value", FILTER_VALIDATE_INT);
 
 if (isset($_SESSION['name'])) {
-    if (!empty($id) && !empty($act)) {
+    if (!empty($id) && !empty($act) && !empty($quanity)) {
         try {
-            if ($quanity === -1) {
+            if ($quanity === -1 && $act !== 3) {
+                $quanity = 1;
                 $st = $db->prepare("select quantity from basket WHERE id_user=? and id_item=?;");
                 $st->bindParam(1, $_SESSION['id']);
                 $st->bindParam(2, $id);
@@ -36,6 +37,12 @@ if (isset($_SESSION['name'])) {
                     $st->bindParam(1, $quanity);
                     $st->bindParam(2, $_SESSION['id']);
                     $st->bindParam(3, $id);
+                    break;
+                case 3:
+                    $st = $db->prepare("DELETE from basket 
+                        WHERE id_user=? and id_item=?;");
+                    $st->bindParam(1, $_SESSION['id']);
+                    $st->bindParam(2, $id);
                     break;
             }
             $st->execute();

@@ -32,7 +32,9 @@
 </div>
 <div id="right">
     <p>  Всего товаров: <span id="count_items"></span><br>
-    Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
+            Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
+            <button id='bt_order' type="button" disabled="true" class="btn btn-order col-md-5 col-sm-5">Оформить заказ</button>
+            <small>Минимальная сумма заказа от 400<f class="rubl">о</f></small>
     </p>
     <table id="items_list">
     </table>

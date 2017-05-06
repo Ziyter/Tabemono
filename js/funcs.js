@@ -6,6 +6,7 @@ $(document).ready(function () {
     $(window).resize(function () {
         win_size();
     });
+    
 //Появление корзины в модальном окне
     function win_size() {
         if ($(window).width() > '582') {
@@ -68,7 +69,6 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-
     //Перемещение меню
     function  move_menu(cls) {
         var toggle_el = $("#bt").attr("data-toggle");
@@ -84,7 +84,6 @@ $(document).ready(function () {
         move_menu("open-sidebar");
         menu = true;
     });
-
 /////////////////////////////////////
 //-------------КОРЗИНА-----------///
 ///////////////////////////////////
@@ -99,44 +98,55 @@ $(document).ready(function () {
 
         function showBasket(data) {
             obj = jQuery.parseJSON(data);
-            if ($(window).width() <= '582') {
-                mobile_basket(obj, true);
-            }
+            open_basket(obj, true);
         }
 
-        function mobile_basket(obj, i) {
+        function open_basket(obj, i) {
             $(".items_elem").remove();
-            var summa = 0;
-            var general_quantity = 0;
+            $("#empty").remove();
+            $("#emptyd").remove();
             if (obj.length > 0) {
+                var summa = 0;
+                var general_quantity = 0;
                 obj.forEach(function (entry) {
-                    $("#empty").remove();
                     var id = entry.id_item;
                     var name = entry.name;
                     var quantity = entry.quantity;
                     var price = entry.price * quantity;
                     summa += price;
                     general_quantity += +quantity;
-                    var inputnum = "<input id_item='" + id + "' class='inputnum' size='2' type='number' min='1' \n\
+                    var inputnum = "<input id_item='" + id + "' class='inputnum' size='40' type='number' min='1' \n\
                                 max='20' value='" + quantity + "'>";
                     var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
-                    $("#items_list").append("<tr class='items_elem'>\n\
+                    if ($(window).width() <= '582') {
+                        $("#items_list").append("<tr class='items_elem'>\n\
                             <td>" + img + "</td>\n\
-                        <td>" + name + "<br>Количество: " + inputnum + "<div id_item='" + id + "' act='3' class='icons del_basket'></div><br>\n\
+                        <td>" + name + "<br>Количество: " + inputnum + "<div id_item='" + id + "' act='3' class='icons del_basket del_basket_white'></div><br>\n\
                     Цена: <span id='pritem_" + id + "'>" + price + "</span><f class='rubl'>о</f></td>\n\
                                 </tr>"
-                            );
+                                );
+                    } else {
+                        $("#items_listd").append("<tr class='items_elem'>\n\
+                            <td>" + img + "</td>\n\
+                        <td>" + name + "</td><td>" + inputnum + "</td>\n\
+                    <td><span id='pritem_" + id + "'>" + price + "</span><f class='rubl'>о</f></td>\n\
+\n\                 <td><div id_item='" + id + "' act='3' class='icons del_basket del_basket_orange'></div></td>\n\
+                                </tr>"
+                                );
+                    }
                 });
             } else {
                 $("#right").prepend("<div id='empty'><h3>Корзина пуста<br> Добавьте товары</h3></div>");
+                $(".modal-content").prepend("<div id='emptyd'><h4>Корзина пуста<br> Добавьте товары</h4></div>");
             }
             $("#count_items").text(general_quantity);
             $("#summa_items").text(summa);
+            $("#count_itemsd").text(general_quantity);
+            $("#summa_itemsd").text(summa);
             if (summa > 400) {
-                $('#bt_order').attr("disabled", false);
+                $('.btn-order').attr("disabled", false);
             } else {
-                $('#bt_order').attr("disabled", true);
-
+                $('.btn-order').attr("disabled", true);
             }
             if (i) {
                 move_menu("open-sidebarright");
@@ -160,7 +170,7 @@ $(document).ready(function () {
 
             function update(data) {
                 obj = jQuery.parseJSON(data);
-                mobile_basket(obj, false);
+                open_basket(obj, false);
             }
 
             $('.del_basket').on('click', function () {
@@ -176,8 +186,16 @@ $(document).ready(function () {
                         );
             });
         }
-    });
 
+    });
+    
+    $('#tooltip').tooltip();
+    
+    //Оформление заказа
+    $('.btn-order').click(function () {
+        $.post("../PHPfuncs/ordering.php");
+    });
+    
     //Добавление в корзину
     $('.icons').click(function () {
         id = this.getAttribute("id_item");
@@ -187,7 +205,6 @@ $(document).ready(function () {
                 {id: id, act: act, value: -1},
                 );
     });
-
 //закрытие меню не по кнопке
     $(document).bind("touchend", function (e) {
         side_menu(e);
@@ -195,7 +212,6 @@ $(document).ready(function () {
     $(document).mouseup(function (e) {
         side_menu(e);
     });
-
     function side_menu(e) {
         var div = $("#sidebar");
         var div1 = $("#right");
@@ -238,7 +254,6 @@ $(document).ready(function () {
         }
         $('#phone').val(phone);
     });
-
 //Проверка email адреса
     $("#email").keyup(function () {
         checkemail();
@@ -253,7 +268,6 @@ $(document).ready(function () {
                     },
                     onAjaxSuccess
                     );
-
         function onAjaxSuccess(data)
         {
             if (data == 0) {
@@ -273,7 +287,6 @@ $(document).ready(function () {
             }
         }
     });
-
     function checkemail() {
         var mail = $("#email").val();
         if (!isValidEmailAddress(mail)) {
@@ -296,7 +309,6 @@ $(document).ready(function () {
     $("[name=pass]").keyup(function () {
         checkpass();
     });
-
     function checkpass() {
         if ($("#pass_again").val().length >= 8)
             if ($("#pass_again").val() === $("[name=pass]").val()) {
@@ -321,7 +333,6 @@ $(document).ready(function () {
     }
 
     $('.alert').hide();
-
     $('#reg').submit(function () {
         $('.alert').hide();
         var verif = true;
@@ -335,7 +346,6 @@ $(document).ready(function () {
         }
         return verif;
     });
-
 //---------------------------------------
 //---------Товары
 //---------------------------------------

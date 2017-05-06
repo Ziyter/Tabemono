@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-24 14:48:19
+/* Smarty version 3.1.30, created on 2017-05-06 14:58:10
   from "C:\openserver\domains\tabemono\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58fde60389e9c3_90917056',
+  'unifunc' => 'content_590dba52ef0db2_08592280',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54020190304138143a1a2ec842c27cf05f3df312' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\header.tpl',
-      1 => 1493034496,
+      1 => 1494071888,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58fde60389e9c3_90917056 (Smarty_Internal_Template $_smarty_tpl) {
+function content_590dba52ef0db2_08592280 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="header" class="row">
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-1">
@@ -85,14 +85,13 @@ function content_58fde60389e9c3_90917056 (Smarty_Internal_Template $_smarty_tpl)
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
-                        Всего товаров: 200000<div>Сумма заказа: 100000 <f class="rubl">о</f>    
+                        <div>Всего товаров: <span id="count_itemsd"></span></div><div>Сумма заказа: <span id="summa_itemsd"></span> <f class="rubl">о</f>    
                         </div></div>
-                    <div class="modal-body">Текст уведомления</div>
-                    <div class="modal-body">Текст уведомления</div>
-                    <div class="modal-body">Текст уведомления</div>
-                    <div class="modal-body">Текст уведомления</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                    <table id="items_listd">
+                    </table>
+                    <div class="modal-footer"><small>Минимальная сумма заказа от 400<f class="rubl">о</f></small>
+                        <button type="button" disabled="true" class="btn btn-order order col-md-5 col-sm-5">Оформить заказ</button>
+                        <button  class="btn order" type="button" data-dismiss="modal">Закрыть</button>
                     </div>
                 </div>
             </div>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-24 15:01:26
+/* Smarty version 3.1.30, created on 2017-05-08 17:43:29
   from "C:\openserver\domains\tabemono\templates\personal_cabinet.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_58fde916771c10_73530572',
+  'unifunc' => 'content_59108411d2cce9_06382130',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6958d233a49c36d5d1b35e2c7410caf1ef07354d' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\personal_cabinet.tpl',
-      1 => 1493035283,
+      1 => 1494254575,
       2 => 'file',
     ),
   ),
@@ -20,16 +20,85 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_58fde916771c10_73530572 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59108411d2cce9_06382130 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-<div id="login">
-    <div class="container">
+<div id="orders_list">
+    <div class="buttons">
         <form id="cabinet" action="PHPfuncs/destroySes.php" method="post">
-
-            <div class="row">
-                <button type="submit" class="btn btn-orange col-md-5 col-sm-5">Выйти</button>
-            </div>
+            <button type="submit" class="btn btn-orange">Выйти</button>
         </form>
     </div>
+    <h3>Список заказов</h3>
+    <?php if ($_smarty_tpl->tpl_vars['MOBILE']->value) {?>
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['ITEM_LIST']->value, 'items');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['items']->value) {
+?>
+            <div class="orders_div">
+                <b>Заказ №</b> <?php echo $_smarty_tpl->tpl_vars['items']->value['id_order'];?>
+<br>
+                <b>Сумма заказа:</b> <?php echo $_smarty_tpl->tpl_vars['items']->value['summa'];?>
+ <f class="rubl">о</f><br> 
+                <b>Время заказа:</b> <?php echo $_smarty_tpl->tpl_vars['items']->value['date_order'];?>
+<br>
+                <b>Статус:</b> <?php echo $_smarty_tpl->tpl_vars['items']->value['name_status'];?>
+<br>
+            </div>
+        <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+ 
+    <?php } else { ?>
+        <div id="order_div_table">
+        <table id="orders_table">
+            <tr>
+                <td>
+                    <b>Номер заказа</b>
+                </td>
+                <td>
+                    <b>Сумма заказа</b>
+                </td>
+                <td>
+                    <b>Дата заказа</b>
+                </td>
+                <td>
+                    <b>Статус</b>
+                </td>
+            </tr>  
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['ITEM_LIST']->value, 'items');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['items']->value) {
+?>
+                <tr>
+                    <td>
+                       № <?php echo $_smarty_tpl->tpl_vars['items']->value['id_order'];?>
+
+                    </td>
+                    <td>
+                <?php echo $_smarty_tpl->tpl_vars['items']->value['summa'];?>
+ <f class="rubl">о</f> 
+                </td>
+                <td>
+                    <?php echo $_smarty_tpl->tpl_vars['items']->value['date_order'];?>
+
+                </td>
+                <td>
+                    <?php echo $_smarty_tpl->tpl_vars['items']->value['name_status'];?>
+
+                </td>
+                </tr>  
+            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+        </table>
+        </div>
+    <?php }?>
 </div><?php }
 }

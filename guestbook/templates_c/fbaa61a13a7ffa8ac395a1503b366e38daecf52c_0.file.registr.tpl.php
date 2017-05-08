@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-27 15:16:49
+/* Smarty version 3.1.30, created on 2017-05-07 13:15:22
   from "C:\openserver\domains\tabemono\templates\registr.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5901e131107c71_01100734',
+  'unifunc' => 'content_590ef3ba9db192_91433257',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fbaa61a13a7ffa8ac395a1503b366e38daecf52c' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\registr.tpl',
-      1 => 1493295405,
+      1 => 1494150944,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5901e131107c71_01100734 (Smarty_Internal_Template $_smarty_tpl) {
+function content_590ef3ba9db192_91433257 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="login">
     <div class="container">
         <form id="reg" action="PHPfuncs/action.php" method="post">
             <div class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Имя</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Имя</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" name="name" class="form-control" >
                     <div class="form-control-feedback"></div>
@@ -54,6 +54,12 @@ function content_5901e131107c71_01100734 (Smarty_Internal_Template $_smarty_tpl)
                     <small class="form-text text-muted">Введите пароль еще раз</small>
                 </div>
             </div>
+            <div id="address_block" class="form-group row">
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
+                <div class="col-sm-7 col-lg-8">
+                    <input required type="password" id="address" class="form-control" >
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Телефон</label>
                 <div class="col-sm-7 col-lg-8">
@@ -72,7 +78,7 @@ function content_5901e131107c71_01100734 (Smarty_Internal_Template $_smarty_tpl)
                 <span class="close" onclick="$('#captcha').hide();">×</span>
                 Пройдите проверку на бота!
             </div>
-                        <div class="icon-plus"></div>
+            <div class="icon-plus"></div>
             <div class="icon-success"></div>
             <div class="row">
                 <button type="submit" class="btn btn-orange col-md-5 col-sm-5">Зарегистрироватся</button>&nbsp;&nbsp;

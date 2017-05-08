@@ -58,7 +58,23 @@ if (empty($module)) {
             break;
         case 'user':
             if (isset($_SESSION['name'])) {
+                $st = $db->prepare("SELECT o.id_order,summa,date_order,name_status
+                FROM orders_user o INNER JOIN status_of_order s ON o.status=s.id_status AND id_user=?;");
+                $st->bindParam(1, $_SESSION['id']);
+                $st->execute();
+                $row = $st->fetchAll();
+                foreach ($row as &$value) {
+                    $value['date_order'] = month_replace($value['date_order']);
+                }
+                $mobile = filter_input(INPUT_COOKIE, 'MOBILE', FILTER_VALIDATE_BOOLEAN);
+                if (isset($mobile)){
+                $smarty->assign('MOBILE', $mobile);
+                }
+                else{
+                $smarty->assign('MOBILE', 'true');
+                }
                 $smarty->assign('TITLE', "Личный кабинет");
+                $smarty->assign('ITEM_LIST', $row);
                 $smarty->assign('TPL_NAME', "personal_cabinet");
             } else {
                 $smarty->assign('TITLE', "Вход");
@@ -77,3 +93,22 @@ if (empty($module)) {
     }
 }
 $smarty->display('page.tpl');
+
+function month_replace($date) {
+    $date_c = strftime("%#d %b, %Y %H:%M", strtotime($date));
+    $replacements = array(
+        "Jan" => "января",
+        "Feb" => "февраля",
+        "Mar" => "марта",
+        "Apr" => "апреля",
+        "May" => "мая",
+        "Jun" => "июня",
+        "Jul" => "июля",
+        "Aug" => "августа",
+        "Sep" => "сентября",
+        "Oct" => "октября",
+        "Nov" => "ноября",
+        "Dec" => "декабря"
+    );
+    return strtr($date_c, $replacements);
+}

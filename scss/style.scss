@@ -364,7 +364,7 @@ body,html {
     background-color: white;
     z-index: 1;
     position: absolute;
-    
+
     h4{
         padding: 25px 0 0 0;
         text-align: center;
@@ -710,19 +710,65 @@ body,html {
         text-align: center;
     }
 
+}
+.btn-orange { 
+    background-color:$backcolor_pas; 
+    color:#FFFFFF; 
+    border-color:$backcolor_pas;
+    cursor: pointer;
+} 
+.btn-orange:hover, .btn-black:focus {
+    background-color: $backcolor_act*0.95; 
+    color: #FFFFFF;
+} 
+.btn-orange:active { 
+    background-color: $backcolor_act;
+    color: #FFFFFF;
+}
+
+//----------------------------------------------------------------------
+//Личный кабинет
+//----------------------------------------------------------------------
+#orders_list{
+
+    .buttons{
+        padding:10px;
+    }
+
     .btn-orange { 
-        background-color:$backcolor_pas; 
-        color:#FFFFFF; 
-        border-color:$backcolor_pas;
-        cursor: pointer;
-    } 
-    .btn-orange:hover, .btn-black:focus {
-        background-color: $backcolor_act*0.95; 
-        color: #FFFFFF;
-    } 
-    .btn-orange:active { 
-        background-color: $backcolor_act;
-        color: #FFFFFF;
+        width: 150px;
+    }
+
+    #order_div_table{
+        border: 1.4px solid $backcolor_pas;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+    }
+    
+    #orders_table{
+        width: 100%;
+        text-align: center;
+        td{
+            padding: 5px;
+        }
+    }
+    .orders_div{
+        width: 90%;
+        border: 1.5px solid $backcolor_pas;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        margin: auto;
+        padding: 7px;
+        margin-bottom:10px;
+
+    }
+    
+    b{
+        font-weight: bold;
+    }
+    
+    h3{
+        padding: 10px;
     }
 }
 

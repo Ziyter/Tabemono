@@ -11,7 +11,9 @@ $(document).ready(function () {
     function win_size() {
         if ($(window).width() > '582') {
             $("#bt-cart").attr("data-toggle", "modal");
+            $.cookie('MOBILE', false);
         } else {
+            $.cookie('MOBILE', true);
             $("#bt-cart").attr("data-toggle", "");
         }
     }

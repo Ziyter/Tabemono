@@ -2,7 +2,7 @@
     <div class="container">
         <form id="reg" action="PHPfuncs/action.php" method="post">
             <div class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Имя</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Имя</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" name="name" class="form-control" >
                     <div class="form-control-feedback"></div>
@@ -30,6 +30,12 @@
                     <small class="form-text text-muted">Введите пароль еще раз</small>
                 </div>
             </div>
+            <div id="address_block" class="form-group row">
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
+                <div class="col-sm-7 col-lg-8">
+                    <input required type="password" id="address" class="form-control" >
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Телефон</label>
                 <div class="col-sm-7 col-lg-8">
@@ -48,7 +54,7 @@
                 <span class="close" onclick="$('#captcha').hide();">×</span>
                 Пройдите проверку на бота!
             </div>
-                        <div class="icon-plus"></div>
+            <div class="icon-plus"></div>
             <div class="icon-success"></div>
             <div class="row">
                 <button type="submit" class="btn btn-orange col-md-5 col-sm-5">Зарегистрироватся</button>&nbsp;&nbsp;

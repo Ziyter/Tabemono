@@ -27,9 +27,9 @@ if ($url != '/') {
 //		}
 
         $module = array_shift($uri_parts); // Получили имя модуля
-        $action = array_shift($uri_parts); // Получили имя действия
+        //$action = array_shift($uri_parts); // Получили имя действия
         // Получили в $params параметры запроса
-        for ($i = 0; $i < count($uri_parts); $i++) {
+        for ($i = 0; $i < count($uri_parts)/2; $i++) {
             $params[$uri_parts[$i]] = $uri_parts[++$i];
         }
     } catch (Exception $e) {
@@ -58,23 +58,37 @@ if (empty($module)) {
             break;
         case 'user':
             if (isset($_SESSION['name'])) {
-                $st = $db->prepare("SELECT o.id_order,summa,date_order,name_status
-                FROM orders_user o INNER JOIN status_of_order s ON o.status=s.id_status AND id_user=?;");
-                $st->bindParam(1, $_SESSION['id']);
-                $st->execute();
-                $row = $st->fetchAll();
-                foreach ($row as &$value) {
-                    $value['date_order'] = month_replace($value['date_order']);
-                }
                 $mobile = filter_input(INPUT_COOKIE, 'MOBILE', FILTER_VALIDATE_BOOLEAN);
-                if (isset($mobile)){
-                $smarty->assign('MOBILE', $mobile);
+                if (isset($mobile)) {
+                    $smarty->assign('MOBILE', $mobile);
+                } else {
+                    $smarty->assign('MOBILE', 'true');
                 }
-                else{
-                $smarty->assign('MOBILE', 'true');
+                if (count($params) == 0) {
+                    $st = $db->prepare("SELECT o.id_order,summa,date_order,name_status
+                FROM orders_user o INNER JOIN status_of_order s ON o.status=s.id_status AND id_user=? ORDER BY date_order DESC;");
+                    $st->bindParam(1, $_SESSION['id']);
+                    $st->execute();
+                    $row = $st->fetchAll();
+                    foreach ($row as &$value) {
+                        $value['date_order'] = month_replace($value['date_order']);
+                    }
+                    $smarty->assign('ORDERS_LIST', $row);
+                } else {
+                    $smarty->assign('ORDER_INFO', 'true');
+                    try {
+                        $st = $db->prepare("SELECT i.id_item,name,img,price,quantity
+                        FROM item i INNER JOIN orders_items o ON o.id_item = i.id_item AND id_order=?;");
+                        $st->bindParam(1, $params['order']);
+                        $st->execute();
+                        $row = $st->fetchAll();
+                        $smarty->assign('ITEMS_LIST', $row);
+                        $smarty->assign('ID_ORDER', $params['order']);
+                    } catch (PDOException $e) {
+                        echo "Ошибка: " . $e->getMessage();
+                    }
                 }
                 $smarty->assign('TITLE', "Личный кабинет");
-                $smarty->assign('ITEM_LIST', $row);
                 $smarty->assign('TPL_NAME', "personal_cabinet");
             } else {
                 $smarty->assign('TITLE', "Вход");

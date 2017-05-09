@@ -711,16 +711,20 @@ body,html {
     }
 
 }
+
+
 .btn-orange { 
     background-color:$backcolor_pas; 
     color:#FFFFFF; 
     border-color:$backcolor_pas;
     cursor: pointer;
 } 
+
 .btn-orange:hover, .btn-black:focus {
     background-color: $backcolor_act*0.95; 
     color: #FFFFFF;
 } 
+
 .btn-orange:active { 
     background-color: $backcolor_act;
     color: #FFFFFF;
@@ -739,17 +743,24 @@ body,html {
         width: 150px;
     }
 
+
     #order_div_table{
         border: 1.4px solid $backcolor_pas;
         border-radius: 10px;
         -moz-border-radius: 10px;
+
     }
-    
+
     #orders_table{
         width: 100%;
         text-align: center;
+
         td{
             padding: 5px;
+
+            a{
+                color: $backcolor_pas;
+            }
         }
     }
     .orders_div{
@@ -761,12 +772,16 @@ body,html {
         padding: 7px;
         margin-bottom:10px;
 
+        a{
+            color: $backcolor_pas;
+        }
+
     }
-    
+
     b{
         font-weight: bold;
     }
-    
+
     h3{
         padding: 10px;
     }

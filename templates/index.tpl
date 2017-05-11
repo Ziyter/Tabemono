@@ -1,7 +1,7 @@
 <div class="owl-carousel owl-theme">
-    <div class="item"><a href="#"><img src="img/image-min.jpg"></a></div>
-    <div class="item"><a href="#"><img src="img/image2-min.jpg"></a></div>
-    <div class="item"><a href="#"><img src="img/image3-min.jpg"></a></div>
+    <div class="item"><a href="#"><img src="/img/image-min.jpg"></a></div>
+    <div class="item"><a href="#"><img src="/img/image2-min.jpg"></a></div>
+    <div class="item"><a href="#"><img src="/img/image3-min.jpg"></a></div>
     <div class="item"><h4>4</h4></div>
     <div class="item"><h4>5</h4></div>
     <div class="item"><h4>6</h4></div>
@@ -13,7 +13,7 @@
             <table id="items_list">
                 <tr><td>
                         <a data-toggle="modal"  data-target="#my1Modal">
-                            <img  width="130" height="130" src="img\goods\crop\{$str.img}"></a>
+                            <img  width="130" height="130" src="/img/goods/crop/{$str.img}"></a>
                                   </td></tr>
                                   <tr><td>
                                   <div id="des">{$str.name}<br>

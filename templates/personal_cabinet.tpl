@@ -77,7 +77,7 @@
                         {$items.name_status}
                     </td>
                     <td>
-                        <a href="/user/order/{$items.id_order}">Товары в заказе</a>
+                        <a href="/user/order/{$items.id_order}/">Товары в заказе</a>
                     </td>
                     </tr>  
                 {/foreach}

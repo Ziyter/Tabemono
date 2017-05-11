@@ -6,7 +6,7 @@ $(document).ready(function () {
     $(window).resize(function () {
         win_size();
     });
-    
+
 //Появление корзины в модальном окне
     function win_size() {
         if ($(window).width() > '582') {
@@ -190,14 +190,14 @@ $(document).ready(function () {
         }
 
     });
-    
+
     $('#tooltip').tooltip();
-    
+
     //Оформление заказа
     $('.btn-order').click(function () {
         $.post("../PHPfuncs/ordering.php");
     });
-    
+
     //Добавление в корзину
     $('.icons').click(function () {
         id = this.getAttribute("id_item");
@@ -349,7 +349,22 @@ $(document).ready(function () {
         return verif;
     });
 //---------------------------------------
-//---------Товары
+//---------Поиск товаров
 //---------------------------------------
+
+//Открытие поисковой страницы
+    $('.search').click(function () {
+        var query = $('#search').val();
+
+        if (query !== "" && query !== undefined)
+            location.href = "/search/query/" + query + "/";
+    });
+    
+    $('#search').keyup(function () {
+        if (event.keyCode === 13)
+        {
+            $('.search').click();
+        }
+    });
 
 });

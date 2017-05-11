@@ -4,8 +4,8 @@
         <title>{$TITLE}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" href="img/logofavapple.png" />
-        <link rel="shortcut icon" type="image/png" href="img/logofav.png" />
+        <link rel="apple-touch-icon" href="/img/logofavapple.png" />
+        <link rel="shortcut icon" type="image/png" href="/img/logofav.png" />
         <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="css/style.css" />
            <link type="text/css" rel="stylesheet" href="css/icons.css" />-->

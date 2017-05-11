@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-06 13:38:02
+/* Smarty version 3.1.30, created on 2017-05-11 14:22:13
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_590da78a75d156_16320332',
+  'unifunc' => 'content_59144965efad31_55602627',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1494067078,
+      1 => 1494501720,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_590da78a75d156_16320332 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59144965efad31_55602627 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
         <div class="container-4">
             <input type="search" id="search" placeholder="Поиск" />
-            <button class="icon">
+            <button class="icon search">
                 <svg height="20px" width="20px" version="1.1" viewBox="-50 -40 512 512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <path id="search" d="M445,386.7l-84.8-85.9c13.8-24.1,21-50.9,21-77.9c0-87.6-71.2-158.9-158.6-158.9C135.2,64,64,135.3,64,222.9  
                           c0,87.6,71.2,158.9,158.6,158.9c27.9,0,55.5-7.7,80.1-22.4l84.4,85.6c1.9,1.9,4.6,3.1,7.3,3.1c2.7,0,5.4-1.1,7.3-3.1l43.3-43.8  

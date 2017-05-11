@@ -29,7 +29,8 @@ if ($url != '/') {
         $module = array_shift($uri_parts); // Получили имя модуля
         //$action = array_shift($uri_parts); // Получили имя действия
         // Получили в $params параметры запроса
-        for ($i = 0; $i < count($uri_parts)/2; $i++) {
+        for ($i = 0; $i < count($uri_parts) / 2; $i++) {
+            if(isset($uri_parts[$i+1]))
             $params[$uri_parts[$i]] = $uri_parts[++$i];
         }
     } catch (Exception $e) {
@@ -55,6 +56,24 @@ if (empty($module)) {
             $smarty->assign('JS', $js);
             $smarty->assign('TITLE', "Главная");
             $smarty->assign('TPL_NAME', "index");
+            break;
+        case 'search':
+            if (!empty($params["query"])) {
+                $query = urldecode($params["query"]);
+
+                $st = $db->prepare("select * from item i INNER JOIN category c ON i.`id_category`=c.id_category
+                        where name=? OR name_cat=?
+                        limit $str,12");
+                $st->execute(array($query, $query));
+                $row = $st->fetchAll();
+                $smarty->assign('row', $row);
+                $smarty->assign('QUERY', $query);
+                $smarty->assign('TITLE', "Поиск товаров");
+                $smarty->assign('TPL_NAME', "search");
+            } else {
+                $smarty->assign('TITLE', "Ошибка");
+                $smarty->assign('TPL_NAME', "error");
+            }
             break;
         case 'user':
             if (isset($_SESSION['name'])) {

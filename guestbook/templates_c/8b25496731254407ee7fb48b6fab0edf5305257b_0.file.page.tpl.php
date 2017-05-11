@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-04-30 16:49:37
+/* Smarty version 3.1.30, created on 2017-05-11 14:42:08
   from "C:\openserver\domains\tabemono\templates\page.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5905eb7172f903_71654802',
+  'unifunc' => 'content_59144e107c97b9_61798277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b25496731254407ee7fb48b6fab0edf5305257b' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\page.tpl',
-      1 => 1493560146,
+      1 => 1494502925,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5905eb7172f903_71654802 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59144e107c97b9_61798277 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -32,8 +32,8 @@ function content_5905eb7172f903_71654802 (Smarty_Internal_Template $_smarty_tpl)
 </title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" href="img/logofavapple.png" />
-        <link rel="shortcut icon" type="image/png" href="img/logofav.png" />
+        <link rel="apple-touch-icon" href="/img/logofavapple.png" />
+        <link rel="shortcut icon" type="image/png" href="/img/logofav.png" />
         <!-- <link rel="stylesheet" href="css/bootstrap.min.css">
         <link type="text/css" rel="stylesheet" href="css/style.css" />
            <link type="text/css" rel="stylesheet" href="css/icons.css" />-->

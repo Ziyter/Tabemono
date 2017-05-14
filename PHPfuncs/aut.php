@@ -15,7 +15,7 @@ if (!empty($emailf) || !empty($passwordf)) {
             $arr = array();
             $_SESSION['id'] = $row['id_user'];
             $_SESSION['name'] = $row['name'];
-            $_SESSION['bin'] = $arr;
+            $_SESSION['email'] = $row['email'];
             header("Location: ".$_SERVER['HTTP_REFERER']);
             exit;
         }

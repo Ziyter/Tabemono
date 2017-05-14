@@ -7,9 +7,9 @@ ob_end_flush();
 
 $namef = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
 $passwordf = password_hash(filter_input(INPUT_POST, "pass", FILTER_SANITIZE_SPECIAL_CHARS), PASSWORD_BCRYPT);
-$phonef = preg_replace("/[^0-9]/", '', filter_input(INPUT_POST, "phone", FILTER_VALIDATE_INT));
+$phonef = preg_replace("/[^0-9]/", '', filter_input(INPUT_POST, "phone", FILTER_SANITIZE_SPECIAL_CHARS));
 $emailf = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
-$address = filter_input(INPUT_POST, "adress", FILTER_SANITIZE_SPECIAL_CHARS);
+$address = filter_input(INPUT_POST, "address", FILTER_SANITIZE_SPECIAL_CHARS);
 
 $url = 'https://www.google.com/recaptcha/api/siteverify?secret=6LdPcB4UAAAAAH5UcRSfjGQPfLLr_tONt4Ue0gmK&response=' . (array_key_exists('g-recaptcha-response', $_POST) ? $_POST["g-recaptcha-response"] : '') . '&remoteip=' . $_SERVER['REMOTE_ADDR'];
 $resp = json_decode(file_get_contents($url), true);
@@ -44,7 +44,7 @@ if (empty($namef) && empty($passwordf) && empty($phonef) && empty($emailf)) {
             echo "Ошибка: " . $e->getMessage();
         }
         echo'<h1>Вы успешно зарегистрированы</h1>
-<button onClick="window.location=\'index.php\'">Далее
+<button onClick="window.location=\'/\'">Далее
 <body>
 </body>';
     }

@@ -33,7 +33,7 @@
             <div id="address_block" class="form-group row">
                 <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
                 <div class="col-sm-7 col-lg-8">
-                    <input required type="password" id="address" class="form-control" >
+                    <input required type="text" id="address" name="address" class="form-control" >
                 </div>
             </div>
             <div class="form-group row">

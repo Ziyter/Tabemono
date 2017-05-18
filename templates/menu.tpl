@@ -26,8 +26,8 @@
             </ul>
         </li>
         <li><a href="#">Акции</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">О нас</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+        <li><a href="/about">О нас</a></li>
     </ul>
 </div>
 <div id="right">

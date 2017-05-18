@@ -37,7 +37,7 @@ if (isset($_SESSION['name'])) {
             $to = $_SESSION['email'];
             $subject = "Новый заказ № $id_order";
             $headers = "From: Tabemono <golubkov77@yandex.ru>\r\n";
-            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            $headers .= "Content-Type: text/html;\r\n";
             $items="";
             foreach ($info_items as $val){
                 $items.="<tr>

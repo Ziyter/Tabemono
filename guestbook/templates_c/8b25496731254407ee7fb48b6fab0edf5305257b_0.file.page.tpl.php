@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-11 14:42:08
+/* Smarty version 3.1.30, created on 2017-05-18 13:20:52
   from "C:\openserver\domains\tabemono\templates\page.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59144e107c97b9_61798277',
+  'unifunc' => 'content_591d7584d2c9c3_83458029',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8b25496731254407ee7fb48b6fab0edf5305257b' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\page.tpl',
-      1 => 1494502925,
+      1 => 1495102850,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_59144e107c97b9_61798277 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591d7584d2c9c3_83458029 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -58,11 +58,11 @@ function content_59144e107c97b9_61798277 (Smarty_Internal_Template $_smarty_tpl)
 ?>
   
                     </div>
-                    <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-  
                 </div>
             </div>
+            <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
         </div>
     </body>
 </html><?php }

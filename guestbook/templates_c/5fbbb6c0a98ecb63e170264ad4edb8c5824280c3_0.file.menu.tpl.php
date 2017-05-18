@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-11 14:22:13
+/* Smarty version 3.1.30, created on 2017-05-18 14:37:38
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59144965efad31_55602627',
+  'unifunc' => 'content_591d8782de3bf0_34459531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1494501720,
+      1 => 1495107386,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59144965efad31_55602627 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591d8782de3bf0_34459531 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -50,8 +50,8 @@ function content_59144965efad31_55602627 (Smarty_Internal_Template $_smarty_tpl)
             </ul>
         </li>
         <li><a href="#">Акции</a></li>
-        <li><a href="#">Контакты</a></li>
-        <li><a href="#">О нас</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+        <li><a href="/about">О нас</a></li>
     </ul>
 </div>
 <div id="right">

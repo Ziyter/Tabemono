@@ -22,9 +22,9 @@
                     <div id="contentB">  
                         {include file="$TPL_NAME.tpl"}  
                     </div>
-                    {include file='footer.tpl'}  
                 </div>
             </div>
+            {include file='footer.tpl'}
         </div>
     </body>
 </html>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-06 14:58:10
+/* Smarty version 3.1.30, created on 2017-05-18 12:58:17
   from "C:\openserver\domains\tabemono\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_590dba52ef0db2_08592280',
+  'unifunc' => 'content_591d7039afcd00_64596915',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54020190304138143a1a2ec842c27cf05f3df312' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\header.tpl',
-      1 => 1494071888,
+      1 => 1495101494,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_590dba52ef0db2_08592280 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591d7039afcd00_64596915 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="header" class="row">
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-1">
@@ -28,8 +28,9 @@ function content_590dba52ef0db2_08592280 (Smarty_Internal_Template $_smarty_tpl)
             <span>toggle menu</span>
         </button> 
     </div>
-    <div id="header1" class="col-6 col-sm-7 col-md-8 col-lg-3"> 
+    <div id="header1" class="col-6 col-sm-7 col-md-8 col-lg-3">
         <div id="logo">
+        <a href="/">
             <svg id="slogo" version="1.1" viewBox="0 0 55.562499 11.90625" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
                 <metadata>
                     <rdf:RDF>
@@ -46,6 +47,7 @@ function content_590dba52ef0db2_08592280 (Smarty_Internal_Template $_smarty_tpl)
                     <text x="0.98191923" y="294.40778" style="fill:#000000;font-family:'Exodus - Personal Use';font-size:10.381px;letter-spacing:0px;line-height:1.25;stroke-width:.13904;word-spacing:0px" xml:space="preserve"><tspan x="0.98191923" y="294.40778" style="stroke-width:.13904"><tspan style="fill:#ff5500;font-size:10.381px;stroke-width:.13904">t<tspan style="fill:#000000;font-size:7.7611px">a</tspan></tspan><tspan style="font-size:7.7611px;stroke-width:.13904">be</tspan><tspan style="fill:#d50000;stroke-width:.13904">m</tspan><tspan style="font-size:7.7611px;stroke-width:.13904">ono</tspan></tspan></text>
                 </g>
             </svg>
+        </a>
         </div>
     </div>
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-7" id="user-div">

@@ -84,7 +84,7 @@ if (empty($module)) {
                     $smarty->assign('MOBILE', 'true');
                 }
                 if (count($params) == 0) {
-                    $st = $db->prepare("SELECT o.id_order,summa,date_order,name_status
+                    $st = $db->prepare("SELECT o.id_order,summa,date_order,name_status,s.id_status
                 FROM orders_user o INNER JOIN status_of_order s ON o.status=s.id_status AND id_user=? ORDER BY date_order DESC;");
                     $st->bindParam(1, $_SESSION['id']);
                     $st->execute();
@@ -118,6 +118,14 @@ if (empty($module)) {
             $smarty->assign('TITLE', "Регистрация");
             $smarty->assign('TPL_NAME', "registr");
             $smarty->assign('JS_HEAD', $js_captcha);
+            break;
+        case 'about':
+            $smarty->assign('TITLE', "О нас");
+            $smarty->assign('TPL_NAME', "about");
+            break;
+        case 'contacts':
+            $smarty->assign('TITLE', "Контакты");
+            $smarty->assign('TPL_NAME', "contacts");
             break;
         default:
             $smarty->assign('TITLE', "Ошибка");

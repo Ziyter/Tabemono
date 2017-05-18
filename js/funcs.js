@@ -86,9 +86,21 @@ $(document).ready(function () {
         move_menu("open-sidebar");
         menu = true;
     });
+
+    //Отмена заказа
+    $(".del_order").click(function () {
+        var id = $(this).attr('id_order');
+        $.post(
+                "../PHPfuncs/delete_order.php",
+                {id: id},
+                );
+        window.location.reload();
+    });
+    
 /////////////////////////////////////
 //-------------КОРЗИНА-----------///
 ///////////////////////////////////
+
     $("#bt-cart").click(function () {
         $.post(
                 "../PHPfuncs/showBasket.php",
@@ -207,13 +219,16 @@ $(document).ready(function () {
                 {id: id, act: act, value: -1},
                 );
     });
+
 //закрытие меню не по кнопке
     $(document).bind("touchend", function (e) {
         side_menu(e);
     });
+
     $(document).mouseup(function (e) {
         side_menu(e);
     });
+
     function side_menu(e) {
         var div = $("#sidebar");
         var div1 = $("#right");
@@ -256,10 +271,12 @@ $(document).ready(function () {
         }
         $('#phone').val(phone);
     });
+
 //Проверка email адреса
     $("#email").keyup(function () {
         checkemail();
     });
+
     $("#email").change(function () {
         checkemail();
         if (!$("#email").hasClass("form-control-warning"))
@@ -289,6 +306,7 @@ $(document).ready(function () {
             }
         }
     });
+
     function checkemail() {
         var mail = $("#email").val();
         if (!isValidEmailAddress(mail)) {
@@ -359,7 +377,7 @@ $(document).ready(function () {
         if (query !== "" && query !== undefined)
             location.href = "/search/query/" + query + "/";
     });
-    
+
     $('#search').keyup(function () {
         if (event.keyCode === 13)
         {

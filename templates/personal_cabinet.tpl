@@ -40,7 +40,7 @@
                     <b>Сумма заказа:</b> {$items.summa} <f class="rubl">о</f><br> 
                     <b>Время заказа:</b> {$items.date_order}<br>
                     <b>Статус:</b> {$items.name_status}<br>
-                    <a href="/user/order/{$items.id_order}">Товары в заказе</a>
+                    <a href="/user/order/{$items.id_order}/">Товары в заказе</a>
                     {if $items.id_status == 1}
                         <div id_order='{$items.id_order}' class='icons del_order del_basket_orange'></div>
                     {/if}

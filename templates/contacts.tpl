@@ -1,6 +1,6 @@
 <div id='about'>
     <h3>Контакты</h3>
-    <br><br>
+    <br>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
             Служба доставки Tabemono<br> 

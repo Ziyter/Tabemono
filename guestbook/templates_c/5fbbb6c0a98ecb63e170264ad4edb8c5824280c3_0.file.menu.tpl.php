@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-18 14:37:38
+/* Smarty version 3.1.30, created on 2017-05-19 16:50:22
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591d8782de3bf0_34459531',
+  'unifunc' => 'content_591ef81e012248_58944769',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1495107386,
+      1 => 1495201817,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d8782de3bf0_34459531 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591ef81e012248_58944769 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -43,10 +43,10 @@ function content_591d8782de3bf0_34459531 (Smarty_Internal_Template $_smarty_tpl)
                 Меню
             </a>
             <ul id="hide" class="collapse in">
-                <li><a href="#">Суши</a></li>
-                <li><a href="#">Роллы</a></li>
+                <li><a href="/category/cat/sushi/page/1">Суши</a></li>
+                <li><a href="/category/cat/rolls/page/1">Роллы</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Наборы</a></li>
+                <li><a href="/category/cat/sets/page/1">Наборы</a></li>
             </ul>
         </li>
         <li><a href="#">Акции</a></li>

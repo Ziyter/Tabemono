@@ -19,10 +19,10 @@
                 Меню
             </a>
             <ul id="hide" class="collapse in">
-                <li><a href="#">Суши</a></li>
-                <li><a href="#">Роллы</a></li>
+                <li><a href="/category/cat/sushi/page/1">Суши</a></li>
+                <li><a href="/category/cat/rolls/page/1">Роллы</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Наборы</a></li>
+                <li><a href="/category/cat/sets/page/1">Наборы</a></li>
             </ul>
         </li>
         <li><a href="#">Акции</a></li>

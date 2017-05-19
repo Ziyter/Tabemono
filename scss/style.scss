@@ -40,6 +40,11 @@ $large: 750px;
     margin: 0 0 0 0
 }
 
+h4{
+    color:$backcolor_pas;
+    padding: 3px;
+}
+
 //Гамбургер
 
 .cmn-toggle-switch {
@@ -795,6 +800,34 @@ footer{
     }
 }
 
+//Страница с товаром
+
+#item_div{
+
+    .row{
+        margin: 0;
+    }
+
+
+    padding:7px;
+
+    h5,h4{
+        color: $backcolor_pas;
+    }
+
+    h4{
+        text-align: center;
+    }
+
+    #info_item {
+        #price{
+            font-size: 24px;
+            color: $backcolor_pas;
+        }
+    }
+
+}
+
 //О нас
 #about{
     padding: 7px;
@@ -812,6 +845,29 @@ footer{
     }
     h6,h3,h5{
         color: $backcolor_pas;
+    }
+}
+
+//Модуль для перехода по страницам 
+#rod_pagebar{
+    text-align:center;
+
+    .pagebar{
+        font-size: 16px;
+        display: inline-block;
+        background-color: $backcolor_pas;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        padding: 0 7px;
+        margin: 0 5px;
+
+        a:link {color:white}
+        a:visited { color:white}
+        a:hover {color:white}
+
+        a{
+            padding: 0 7px;
+        }
     }
 }
 

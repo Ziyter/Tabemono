@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     $("#bt-cart").click(function () {
         $.post(
-                "../PHPfuncs/showBasket.php",
+                "/PHPfuncs/showBasket.php",
                 ajax
                 );
         function ajax(data) {
@@ -131,7 +131,7 @@ $(document).ready(function () {
                     general_quantity += +quantity;
                     var inputnum = "<input id_item='" + id + "' class='inputnum' size='40' type='number' min='1' \n\
                                 max='20' value='" + quantity + "'>";
-                    var img = "<img  width='60' height='60' src='img/goods/crop/" + entry.img + "'>";
+                    var img = "<img  width='60' height='60' src='/img/goods/crop/" + entry.img + "'>";
                     if ($(window).width() <= '582') {
                         $("#items_list").append("<tr class='items_elem'>\n\
                             <td>" + img + "</td>\n\
@@ -173,11 +173,11 @@ $(document).ready(function () {
                 var id = $(this).attr('id_item');
                 var val = $(this).val();
                 $.post(
-                        "../PHPfuncs/changebasket.php",
+                        "/PHPfuncs/changebasket.php",
                         {id: id, act: 2, value: val},
                         );
                 $.post(
-                        "../PHPfuncs/showBasket.php",
+                        "/PHPfuncs/showBasket.php",
                         update
                         );
             });
@@ -191,11 +191,11 @@ $(document).ready(function () {
                 id = this.getAttribute("id_item");
                 act = this.getAttribute("act");
                 $.post(
-                        "../PHPfuncs/changebasket.php",
+                        "/PHPfuncs/changebasket.php",
                         {id: id, act: act, value: -1},
                         );
                 $.post(
-                        "../PHPfuncs/showBasket.php",
+                        "/PHPfuncs/showBasket.php",
                         update
                         );
             });
@@ -215,7 +215,7 @@ $(document).ready(function () {
         id = this.getAttribute("id_item");
         act = this.getAttribute("act");
         $.post(
-                "../PHPfuncs/changebasket.php",
+                "/PHPfuncs/changebasket.php",
                 {id: id, act: act, value: -1},
                 );
     });

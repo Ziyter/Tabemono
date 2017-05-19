@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-18 13:18:04
+/* Smarty version 3.1.30, created on 2017-05-19 16:03:16
   from "C:\openserver\domains\tabemono\templates\personal_cabinet.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591d74dcf19fd6_72785886',
+  'unifunc' => 'content_591eed141f5618_57961988',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6958d233a49c36d5d1b35e2c7410caf1ef07354d' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\personal_cabinet.tpl',
-      1 => 1495102682,
+      1 => 1495198940,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d74dcf19fd6_72785886 (Smarty_Internal_Template $_smarty_tpl) {
+function content_591eed141f5618_57961988 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="orders_list">
     <div class="buttons">
@@ -98,7 +98,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['items']->value) {
                     <b>Статус:</b> <?php echo $_smarty_tpl->tpl_vars['items']->value['name_status'];?>
 <br>
                     <a href="/user/order/<?php echo $_smarty_tpl->tpl_vars['items']->value['id_order'];?>
-">Товары в заказе</a>
+/">Товары в заказе</a>
                     <?php if ($_smarty_tpl->tpl_vars['items']->value['id_status'] == 1) {?>
                         <div id_order='<?php echo $_smarty_tpl->tpl_vars['items']->value['id_order'];?>
 ' class='icons del_order del_basket_orange'></div>

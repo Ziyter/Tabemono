@@ -29,20 +29,16 @@ if ($url != '/') {
         $module = array_shift($uri_parts); // Получили имя модуля
         //$action = array_shift($uri_parts); // Получили имя действия
         // Получили в $params параметры запроса
-        for ($i = 0; $i < count($uri_parts) / 2; $i++) {
-            if(isset($uri_parts[$i+1]))
-            $params[$uri_parts[$i]] = $uri_parts[++$i];
+        for ($i = 0; $i < count($uri_parts); $i++) {
+            if (isset($uri_parts[$i + 1]))
+                $params[$uri_parts[$i]] = $uri_parts[++$i];
         }
     } catch (Exception $e) {
         $smarty->assign('TPL_NAME', "error");
     }
 }
-//echo "\$module: $module\n";
-//echo "\$action: $action\n";
-//echo "\$params:\n";
-//print_r($params);
 
-$db = classSmarty::getDB('admin', 'admin');
+$db = classSmarty::getDB('user', 'user');
 
 if (empty($module)) {
     $smarty->assign('TPL_NAME', "error");
@@ -112,6 +108,65 @@ if (empty($module)) {
             } else {
                 $smarty->assign('TITLE', "Вход");
                 $smarty->assign('TPL_NAME', "login");
+            }
+            break;
+        case 'item':
+            $id = $params["id"];
+            if (is_numeric($id)) {
+                $st = $db->prepare("SELECT * FROM item where id_item=?");
+                $st->execute(array($id));
+                $row = $st->fetch();
+                $smarty->assign('row', $row);
+                $smarty->assign('TITLE', $row['name']);
+                $smarty->assign('TPL_NAME', "item");
+            } else {
+                $smarty->assign('TITLE', "Ошибка");
+                $smarty->assign('TPL_NAME', "error");
+            }
+            break;
+        case 'category':
+            $cat_name = $params["cat"];
+            $page = filter_var($params["page"], FILTER_SANITIZE_NUMBER_INT, array("options" => array("min_range" => 1)));
+            $str = ($page !== '') ? ($page - 1) * 12 : 0;
+            $smarty->assign('CAT_NAME', $cat_name);
+            switch ($cat_name) {
+                case 'sushi':
+                    $cat = 2;
+                    $cat_name = 'Суши';
+                    break;
+                case 'rolls':
+                    $cat = 1;
+                    $cat_name = 'Роллы';
+                    break;
+                case 'sets':
+                    $cat = 3;
+                    $cat_name = 'Наборы';
+                    break;
+                default:
+                    $cat = 0;
+                    break;
+            }
+            if ($cat != 0 && isset($str)) {
+                $st = $db->prepare("SELECT * FROM item where id_category=? limit $str,12");
+                $st->execute(array($cat));
+                $row = $st->fetchall();
+
+                $st = $db->prepare("SELECT count(*) FROM item where id_category=? ");
+                $st->execute(array($cat));
+                $items_count=$st->fetch()[0];
+                $page_count = floor($items_count/ 12);
+                $alpha=($page-3<1)?1:$page-3;
+                $omega=($page+3>$page_count)?$page_count:$page+3;
+                
+                $smarty->assign('ALPHA', $alpha);
+                $smarty->assign('OMEGA', $omega);
+                $smarty->assign('PAGES', $page_count);
+                $smarty->assign('row', $row);
+                $smarty->assign('TITLE', $cat_name);
+                $smarty->assign('TPL_NAME', "list_items");
+            } else {
+                $smarty->assign('TITLE', "Ошибка");
+                $smarty->assign('TPL_NAME', "error");
             }
             break;
         case 'registr':

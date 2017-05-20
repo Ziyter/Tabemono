@@ -45,7 +45,7 @@ if (empty($module)) {
 } else {
     switch ($module) {
         case 'index':
-            $st = $db->query("select * from item limit $str,12");
+            $st = $db->query("select * from item limit $str,4");
             $row = $st->fetchAll();
             $smarty->assign('row', $row);
             $smarty->assign('CSS', $css);
@@ -153,13 +153,24 @@ if (empty($module)) {
 
                 $st = $db->prepare("SELECT count(*) FROM item where id_category=? ");
                 $st->execute(array($cat));
-                $items_count=$st->fetch()[0];
-                $page_count = floor($items_count/ 12);
-                $alpha=($page-3<1)?1:$page-3;
-                $omega=($page+3>$page_count)?$page_count:$page+3;
-                
+                $items_count = $st->fetch()[0];
+                $page_count = ceil($items_count / 12);
+                if ($page - 3 < 1) {
+                    $alpha = 1;
+                    $omega = 7;
+                } else {
+                    $alpha = $page - 3;
+
+                    if ($page + 3 > $page_count) {
+                        $omega = $page_count;
+                        $alpha = $page_count - 6;
+                    } else {
+                        $omega = $page + 3;
+                    }
+                }
                 $smarty->assign('ALPHA', $alpha);
                 $smarty->assign('OMEGA', $omega);
+                $smarty->assign('PAGE', $page);
                 $smarty->assign('PAGES', $page_count);
                 $smarty->assign('row', $row);
                 $smarty->assign('TITLE', $cat_name);

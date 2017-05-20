@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-19 16:50:22
+/* Smarty version 3.1.30, created on 2017-05-20 14:48:48
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591ef81e012248_58944769',
+  'unifunc' => 'content_59202d207a5ce5_91242104',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1495201817,
+      1 => 1495280697,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591ef81e012248_58944769 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59202d207a5ce5_91242104 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -63,5 +63,7 @@ function content_591ef81e012248_58944769 (Smarty_Internal_Template $_smarty_tpl)
     <table id="items_list">
     </table>
 </div> 
-<div class="back_block"></div><?php }
+<div class="back_block"></div>
+<div class="notification_block">
+    <div></div></div><?php }
 }

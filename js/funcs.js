@@ -71,6 +71,7 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
     //Перемещение меню
     function  move_menu(cls) {
         var toggle_el = $("#bt").attr("data-toggle");
@@ -96,7 +97,7 @@ $(document).ready(function () {
                 );
         window.location.reload();
     });
-    
+
 /////////////////////////////////////
 //-------------КОРЗИНА-----------///
 ///////////////////////////////////
@@ -208,6 +209,9 @@ $(document).ready(function () {
     //Оформление заказа
     $('.btn-order').click(function () {
         $.post("../PHPfuncs/ordering.php");
+        notification("Заказ успешно офрмлен!");
+        move_menu("open-sidebarright");
+        $(".clcart").toggleClass("active");
     });
 
     //Добавление в корзину
@@ -218,9 +222,10 @@ $(document).ready(function () {
                 "/PHPfuncs/changebasket.php",
                 {id: id, act: act, value: -1},
                 );
+        notification("Товар добавлен в корзину");
     });
 
-//закрытие меню не по кнопке
+//Закрытие меню не по кнопке
     $(document).bind("touchend", function (e) {
         side_menu(e);
     });
@@ -385,4 +390,11 @@ $(document).ready(function () {
         }
     });
 
+    function notification(text) {
+        $('.notification_block div').text(text);
+        $('.notification_block').fadeIn(400);
+        setTimeout(function () {
+            $('.notification_block').fadeOut('fast');
+        }, 1000);
+    }
 });

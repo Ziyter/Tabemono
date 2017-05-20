@@ -24,9 +24,21 @@
 {if $PAGES!=0}
     <div id="rod_pagebar">
         <div class='pagebar'>
+            <a href="/category/cat/{$CAT_NAME}/page/1"><<</a>
+            {if $PAGE!=1}
+                <a href="/category/cat/{$CAT_NAME}/page/{$PAGE-1}"><</a>
+            {/if}
             {for $foo=$ALPHA to $OMEGA}
-                <a href="/category/cat/{$CAT_NAME}/page/{$foo}">{$foo}</a>
+                {if $foo!=$PAGE}
+                    <a href="/category/cat/{$CAT_NAME}/page/{$foo}">{$foo}</a>
+                {else}
+                    <a id="current_page" href="/category/cat/{$CAT_NAME}/page/{$foo}">{$foo}</a>
+                {/if}
             {/for}
+            {if $PAGE!=$PAGES}
+                <a href="/category/cat/{$CAT_NAME}/page/{$PAGE+1}">></a>
+            {/if}
+            <a href="/category/cat/{$CAT_NAME}/page/{$PAGES}">>></a>
         </div>
     </div>
 {/if}

@@ -853,7 +853,7 @@ footer{
     text-align:center;
 
     .pagebar{
-        font-size: 16px;
+        font-size: 17px;
         display: inline-block;
         background-color: $backcolor_pas;
         border-radius: 8px;
@@ -866,9 +866,45 @@ footer{
         a:hover {color:white}
 
         a{
-            padding: 0 7px;
+            padding: 0 5px;
+            
+        }
+        #current_page{
+            background-color: white;
+            color: $backcolor_pas;
         }
     }
+}
+
+//Модуль уведомления
+
+.notification_block{
+    position: fixed;
+    width: 300px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px; /* Negative half of height. */
+    margin-left: -150px; /* Negative half of width. */
+    background-color: black;
+    opacity: .7;
+    z-index: 999999;
+    color:white;
+    padding: 10px;
+    border-radius: 8px;
+    -moz-border-radius: 8px;
+    font-size: 22px;
+    text-align: center;
+    display: none;
+    
+    div{
+        width: 100%;
+        margin: 25% 0; 
+    }
+    /*    -moz-transition: opacity 0.4s 0.1s ease,z-index 0.9s;
+        -o-transition: opacity 0.4s 0.1s ease,z-index 0.9s;
+        -webkit-transition: opacity 0.4s 0.1s ease, z-index 0.9s;
+        transition: opacity 0.4s 0.1s ease, z-index 0.9s;*/
 }
 
 //Поиск

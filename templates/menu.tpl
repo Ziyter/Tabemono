@@ -40,3 +40,5 @@
     </table>
 </div> 
 <div class="back_block"></div>
+<div class="notification_block">
+    <div></div></div>

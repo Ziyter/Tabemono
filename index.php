@@ -40,6 +40,10 @@ if ($url != '/') {
 
 $db = classSmarty::getDB('user', 'user');
 
+if (isset($_SESSION['name']) && $_COOKIE['MOBILE']=='false') {
+    $smarty->assign('NAME_USER', $_SESSION['name']);
+}
+
 if (empty($module)) {
     $smarty->assign('TPL_NAME', "error");
 } else {

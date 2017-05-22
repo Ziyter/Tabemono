@@ -4,7 +4,7 @@
             <span>toggle menu</span>
         </button> 
     </div>
-    <div id="header1" class="col-6 col-sm-7 col-md-8 col-lg-3">
+    <div id="header1" class="col-5 col-sm-4 col-md-6 col-lg-3">
         <div id="logo">
         <a href="/">
             <svg id="slogo" version="1.1" viewBox="0 0 55.562499 11.90625" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -26,8 +26,9 @@
         </a>
         </div>
     </div>
-    <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-7" id="user-div">
+    <div id="header1" class="col-3 col-sm-5 col-md-3 col-lg-7" id="user-div">
         <center>
+            <span id="user_name"> {$NAME_USER}</span>
             <a href="/user" id="bt-user">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="54" height="48" viewBox="2 1 30 30">
                     <path id="user" d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z">
@@ -36,7 +37,7 @@
             </a>
         </center>
     </div>
-    <div id="header1" class="col-2 col-sm-5 col-md-2 col-lg-1" id="cart">
+    <div id="header1" class="col-2 col-sm-2 col-md-2 col-lg-1" id="cart">
         <center><a id="bt-cart" data-toggle="" data-target="#myModal">       
                 <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"
                      width="54" height="48" viewBox="0 -6 40 40">

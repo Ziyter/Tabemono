@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-18 12:58:17
+/* Smarty version 3.1.30, created on 2017-05-22 13:19:43
   from "C:\openserver\domains\tabemono\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591d7039afcd00_64596915',
+  'unifunc' => 'content_5922bb3f2fc686_88762033',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54020190304138143a1a2ec842c27cf05f3df312' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\header.tpl',
-      1 => 1495101494,
+      1 => 1495448380,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d7039afcd00_64596915 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5922bb3f2fc686_88762033 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="header" class="row">
     <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-1">
@@ -28,7 +28,7 @@ function content_591d7039afcd00_64596915 (Smarty_Internal_Template $_smarty_tpl)
             <span>toggle menu</span>
         </button> 
     </div>
-    <div id="header1" class="col-6 col-sm-7 col-md-8 col-lg-3">
+    <div id="header1" class="col-5 col-sm-4 col-md-6 col-lg-3">
         <div id="logo">
         <a href="/">
             <svg id="slogo" version="1.1" viewBox="0 0 55.562499 11.90625" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -50,8 +50,10 @@ function content_591d7039afcd00_64596915 (Smarty_Internal_Template $_smarty_tpl)
         </a>
         </div>
     </div>
-    <div id="header1" class="col-2 col-sm-1 col-md-1 col-lg-7" id="user-div">
+    <div id="header1" class="col-3 col-sm-5 col-md-3 col-lg-7" id="user-div">
         <center>
+            <span id="user_name"> <?php echo $_smarty_tpl->tpl_vars['NAME_USER']->value;?>
+</span>
             <a href="/user" id="bt-user">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="54" height="48" viewBox="2 1 30 30">
                     <path id="user" d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z">
@@ -60,7 +62,7 @@ function content_591d7039afcd00_64596915 (Smarty_Internal_Template $_smarty_tpl)
             </a>
         </center>
     </div>
-    <div id="header1" class="col-2 col-sm-5 col-md-2 col-lg-1" id="cart">
+    <div id="header1" class="col-2 col-sm-2 col-md-2 col-lg-1" id="cart">
         <center><a id="bt-cart" data-toggle="" data-target="#myModal">       
                 <svg version="1.1"  xmlns="http://www.w3.org/2000/svg"
                      width="54" height="48" viewBox="0 -6 40 40">

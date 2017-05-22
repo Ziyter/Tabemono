@@ -8,8 +8,8 @@ $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
 $act = filter_input(INPUT_POST, "act", FILTER_VALIDATE_INT);
 $quanity = filter_input(INPUT_POST, "value", FILTER_VALIDATE_INT);
 
-if (isset($_SESSION['name'])) {
-    if (!empty($id) && !empty($act) && !empty($quanity)) {
+if (!empty($id) && !empty($act) && !empty($quanity)) {
+    if (isset($_SESSION['name'])) {
         try {
             if ($quanity === -1 && $act !== 3) {
                 $quanity = 1;
@@ -48,6 +48,45 @@ if (isset($_SESSION['name'])) {
             $st->execute();
         } catch (PDOException $e) {
             echo "Ошибка: " . $e->getMessage();
+        }
+    } else {
+        $cart_str = filter_input(INPUT_COOKIE, "cart", FILTER_SANITIZE_SPECIAL_CHARS);
+        if (isset($cart_str)) {
+            $cart = explode(",", $cart_str);
+            $i = 0;
+            switch ($act) {
+                case 1:
+                    array_push($cart, $id);
+                    setcookie("cart", implode(',', $cart));
+                    break;
+                case 2:
+                    foreach ($cart as &$value) {
+                        if ($value == $id) {
+                            unset($cart[$i]);
+                        }
+                        $i++;
+                    }
+                    for($i=0;$i<$quanity;$i++){
+                       array_push($cart, $id); 
+                    }
+                    setcookie("cart", implode(',', $cart));
+                    break;
+                case 3:
+                    foreach ($cart as &$value) {
+                        if ($value == $id) {
+                            unset($cart[$i]);
+                        }
+                        $i++;
+                    }
+                    if (count($cart) != 0) {
+                        setcookie("cart", implode(',', $cart));
+                    } else {
+                        setcookie("cart", '');
+                    }
+                    break;
+            }
+        } else {
+            setcookie("cart", $id);
         }
     }
 }

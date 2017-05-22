@@ -107,12 +107,16 @@ $(document).ready(function () {
                 "/PHPfuncs/showBasket.php",
                 ajax
                 );
+        
         function ajax(data) {
             showBasket(data);
         }
 
         function showBasket(data) {
-            obj = jQuery.parseJSON(data);
+            if(data!=''){
+            obj = jQuery.parseJSON(data);}
+        else
+            obj='';
             open_basket(obj, true);
         }
 

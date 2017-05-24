@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-18 14:57:23
+/* Smarty version 3.1.30, created on 2017-05-23 13:45:24
   from "C:\openserver\domains\tabemono\templates\contacts.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591d8c2388ef53_88275578',
+  'unifunc' => 'content_592412c482e158_88243078',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4aab97aabf9bef1bca223e252f4e341a420e2ab3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\contacts.tpl',
-      1 => 1495108638,
+      1 => 1495196295,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591d8c2388ef53_88275578 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592412c482e158_88243078 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id='about'>
     <h3>Контакты</h3>
-    <br><br>
+    <br>
     <div class="row">
         <div class="col-12 col-md-6 col-lg-6">
             Служба доставки Tabemono<br> 

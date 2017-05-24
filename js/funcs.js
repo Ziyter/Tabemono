@@ -107,16 +107,16 @@ $(document).ready(function () {
                 "/PHPfuncs/showBasket.php",
                 ajax
                 );
-        
+
         function ajax(data) {
             showBasket(data);
         }
 
         function showBasket(data) {
-            if(data!=''){
-            obj = jQuery.parseJSON(data);}
-        else
-            obj='';
+            if (data != '') {
+                obj = jQuery.parseJSON(data);
+            } else
+                obj = '';
             open_basket(obj, true);
         }
 
@@ -212,10 +212,22 @@ $(document).ready(function () {
 
     //Оформление заказа
     $('.btn-order').click(function () {
-        $.post("../PHPfuncs/ordering.php");
-        notification("Заказ успешно офрмлен!");
-        move_menu("open-sidebarright");
-        $(".clcart").toggleClass("active");
+        $.post("../PHPfuncs/ordering.php",
+                function (data) {
+                    if (data) {
+                        notification("Для оформления заказа нужно зарегистрироваться!");
+                        setTimeout(function () {
+                            location.href = '/user';
+                        }, 1100);
+                    } else {
+                        notification("Заказ успешно офрмлен!");
+//                        move_menu("open-sidebarright");
+//                        $(".clcart").toggleClass("active");
+                        setTimeout(function () {
+                            location.href = '/user';
+                        }, 1100);
+                    }
+                });
     });
 
     //Добавление в корзину

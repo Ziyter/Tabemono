@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-20 16:11:14
+/* Smarty version 3.1.30, created on 2017-05-24 14:57:45
   from "C:\openserver\domains\tabemono\templates\list_items.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592040722556e1_51016230',
+  'unifunc' => 'content_592575398e2313_26268067',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e461d363b763689ac6e4d57641089f65a9f2a49b' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\list_items.tpl',
-      1 => 1495285869,
+      1 => 1495627062,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_592040722556e1_51016230 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592575398e2313_26268067 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="items"  class="row">
     <?php
@@ -46,7 +46,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['str']->value) {
  <f class="rubl">о</f> 
                                 </span> 
                                 <div id_item="<?php echo $_smarty_tpl->tpl_vars['str']->value['id_item'];?>
-" act='1' class="icons plus addkorz">Беру</div>
+" act='1' class="icons plus addkorz">Добавить</div>
                             </div>
                         </div>
                     </td></tr>

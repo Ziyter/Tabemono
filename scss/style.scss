@@ -334,6 +334,7 @@ footer{
     }
 }
 
+//Блок с корзиной
 #right {
     width: 265px; 
     left: 100%;
@@ -351,6 +352,7 @@ footer{
         padding: 20px 0 0 0;
     }
 
+    //Блок с сообщением о пустоте корзины
     #empty{
         position: absolute;
         width: 265px; 
@@ -381,9 +383,7 @@ footer{
     }
 }
 
-//#sidebar::-webkit-scrollbar { width: 0; height: 0; }
-//#right::-webkit-scrollbar { width: 0; height: 0; }
-
+//Блок с контентом
 .main-content {
     width: 100%;
     height: 100%;
@@ -391,38 +391,45 @@ footer{
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     position: relative;
-}
-.main-content .content{
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding-left: 60px;
-    width: 100%;
-}
-.main-content .content h1{
-    font-weight: 100;
-}
-.main-content .content p{
-    width: 100%;
-    line-height: 160%;
-}
-.main-content #sidebar-toggle {
-    background: #DF314D;
-    border-radius: 3px;
-    display: block;
-    position: relative;
-    padding: 10px 7px;
-    float: left;
-}
-.main-content #sidebar-toggle .bar{
-    display: block;
-    width: 18px;
-    margin-bottom: 3px;
-    height: 2px;
-    background-color: #fff;
-    border-radius: 1px;
-}
-.main-content #sidebar-toggle .bar:last-child{
-    margin-bottom: 0;
+
+
+    .content{
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        padding-left: 60px;
+        width: 100%;
+
+        h1{
+            font-weight: 100;
+        }
+
+        p{
+            width: 100%;
+            line-height: 160%;
+        }
+    }
+
+    #sidebar-toggle {
+        background: #DF314D;
+        border-radius: 3px;
+        display: block;
+        position: relative;
+        padding: 10px 7px;
+        float: left;
+    }
+
+    #sidebar-toggle .bar{
+        display: block;
+        width: 18px;
+        margin-bottom: 3px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 1px;
+    }
+
+    #sidebar-toggle .bar:last-child{
+        margin-bottom: 0;
+    }
 }
 
 
@@ -598,7 +605,12 @@ footer{
 }
 
 .addkorz{
-    padding: 5px 0px 0 40px;
+    padding: 7px 0px 0 40px;
+    background-color:$backcolor_pas;
+    color: white;
+    border-radius: 15px;
+    width: 120px;
+    margin-top: 7px;
 }
 
 .inputnum{
@@ -873,7 +885,7 @@ footer{
 
         a{
             padding: 0 5px;
-            
+
         }
         #current_page{
             background-color: white;
@@ -893,7 +905,7 @@ footer{
     margin-top: -100px; /* Negative half of height. */
     margin-left: -150px; /* Negative half of width. */
     background-color: black;
-    opacity: .7;
+    opacity: .8;
     z-index: 999999;
     color:white;
     padding: 10px;
@@ -902,7 +914,7 @@ footer{
     font-size: 22px;
     text-align: center;
     display: none;
-    
+
     div{
         width: 100%;
         margin: 25% 0; 

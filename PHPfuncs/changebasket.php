@@ -51,15 +51,15 @@ if (!empty($id) && !empty($act) && !empty($quanity)) {
         }
     } else {
         $cart_str = filter_input(INPUT_COOKIE, "cart", FILTER_SANITIZE_SPECIAL_CHARS);
-        if (isset($cart_str)) {
+        if (!empty($cart_str)) {
             $cart = explode(",", $cart_str);
             $i = 0;
             switch ($act) {
-                case 1:
+                case 1://добавление
                     array_push($cart, $id);
                     setcookie("cart", implode(',', $cart));
                     break;
-                case 2:
+                case 2://обновление
                     foreach ($cart as &$value) {
                         if ($value == $id) {
                             unset($cart[$i]);
@@ -71,7 +71,7 @@ if (!empty($id) && !empty($act) && !empty($quanity)) {
                     }
                     setcookie("cart", implode(',', $cart));
                     break;
-                case 3:
+                case 3://удаление
                     foreach ($cart as &$value) {
                         if ($value == $id) {
                             unset($cart[$i]);

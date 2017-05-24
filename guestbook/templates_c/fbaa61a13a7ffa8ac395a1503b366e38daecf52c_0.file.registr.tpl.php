@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-14 17:07:32
+/* Smarty version 3.1.30, created on 2017-05-24 15:02:24
   from "C:\openserver\domains\tabemono\templates\registr.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_591864a4979155_95999540',
+  'unifunc' => 'content_59257650a970e6_52760854',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fbaa61a13a7ffa8ac395a1503b366e38daecf52c' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\registr.tpl',
-      1 => 1494770826,
+      1 => 1495627341,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_591864a4979155_95999540 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59257650a970e6_52760854 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="login">
     <div class="container">
         <form id="reg" action="PHPfuncs/action.php" method="post">
             <div class="form-group row">
-                <label class="col-sm-5 col-lg-3 col-form-label">Имя</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Имя *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" name="name" class="form-control" >
                     <div class="form-control-feedback"></div>
@@ -34,34 +34,34 @@ function content_591864a4979155_95999540 (Smarty_Internal_Template $_smarty_tpl)
                 </div> 
             </div>
             <div id="emailblock" class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label ">Email</label>
+                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label ">Email *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="email" name="email" id="email" class="form-control" >
                     <div id="emaildes" class="form-control-feedback"></div>
                 </div>
             </div>
             <div id="passblock" class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Пароль</label>
+                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Пароль *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="password" name="pass" class="form-control" >
-                    <small class="form-text text-muted">Пароль должен быть не короче 8 символов</small>
+                    <small class="form-text text-muted">Пароль должен быть не менее 8 символов</small>
                 </div>
             </div>
             <div id="pass_againblock" class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Еще раз</label>
+                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Еще раз *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="password" id="pass_again" class="form-control" >
                     <small class="form-text text-muted">Введите пароль еще раз</small>
                 </div>
             </div>
             <div id="address_block" class="form-group row">
-                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" id="address" name="address" class="form-control" >
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Телефон</label>
+                <label for="inputHorizontalSuccess" class="col-sm-5 col-lg-3 col-form-label">Телефон *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text"  name="phone" id="phone" class="form-control" maxlength="17">
                     <div class="form-control-feedback"></div>

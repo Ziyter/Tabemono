@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require 'classSmarty.php';
 $smarty = classSmarty::getSmarty();

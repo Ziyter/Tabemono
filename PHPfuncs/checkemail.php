@@ -1,7 +1,7 @@
 <?php
 
 require '../classSmarty.php';
-$db = classSmarty::getDB('admin', 'admin');
+$db = classSmarty::getDB('user', 'user');
 
 $emailf = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 

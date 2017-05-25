@@ -352,8 +352,8 @@ footer{
         padding: 20px 0 0 0;
     }
 
-    //Блок с сообщением о пустоте корзины
-    #empty{
+    //Блок перекрывающий корзину
+    .cart_block{
         position: absolute;
         width: 265px; 
         background: -webkit-linear-gradient($backcolor);
@@ -364,11 +364,18 @@ footer{
         z-index: 99999;
     }
 
+    #order_preference{
+        //display: none;  
+        color:white;
+        padding: 7px;
+    }
+
     li.items_elem{
         font-size: 13px;
         height: 100px;
     }
 }
+
 
 #emptyd{
     width: 100%;
@@ -742,17 +749,23 @@ footer{
     color: $backcolor_pas;
 }
 
+.btn.active, .btn:active { 
+    background-color: $backcolor_act;
+    color: #FFFFFF;
+}
 
 .btn-orange { 
     background-color:$backcolor_pas; 
     color:#FFFFFF; 
     border-color:$backcolor_pas;
     cursor: pointer;
+
 } 
 
-.btn-orange:hover, .btn-black:focus {
+.btn-orange:hover,.btn-orange:focus, .btn-black:focus {
     background-color: $backcolor_act*0.95; 
     color: #FFFFFF;
+    outline: none;
 } 
 
 .btn-orange:active { 

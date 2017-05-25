@@ -30,14 +30,15 @@ if (empty($namef) && empty($passwordf) && empty($phonef) && empty($emailf)) {
     if ($st->rowCount() == 0) {
         try {
             $db->beginTransaction();
-            $st = $db->prepare("insert into users values('',:name,:phone,:email,:password,:city,:address)");
+            $st = $db->prepare("insert into users values('',:name,:phone,:email,:password,:city)");
             $st->bindParam(':name', $namef);
             $st->bindParam(':phone', $phonef);
             $st->bindParam(':email', $emailf);
             $st->bindParam(':password', $passwordf);
             $st->bindParam(':city', $a);
-            $st->bindParam(':address', $address);
             $st->execute();
+            $st = $db->prepare("insert into user_address values('',LAST_INSERT_ID(),?)");
+            $st->execute(array($address));
             $db->commit();
         } catch (PDOException $e) {
             $db->rollBack();

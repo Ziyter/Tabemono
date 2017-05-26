@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-25 17:15:15
+/* Smarty version 3.1.30, created on 2017-05-26 16:01:05
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5926e6f30eca99_04616368',
+  'unifunc' => 'content_59282711258e02_56761139',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1495721707,
+      1 => 1495803658,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:form_preference.tpl' => 1,
   ),
 ),false)) {
-function content_5926e6f30eca99_04616368 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59282711258e02_56761139 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -58,9 +58,12 @@ function content_5926e6f30eca99_04616368 (Smarty_Internal_Template $_smarty_tpl)
 <div id="right">
     <div id="order_preference" class='cart_block'>
         <center><h5>Выберите время и адрес доставки</h5></center>
+        <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
             <?php $_smarty_tpl->_subTemplateRender("file:form_preference.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
+            <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+        </form>
     </div>
     <p>  Всего товаров: <span id="count_items"></span><br>
             Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>

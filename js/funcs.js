@@ -212,26 +212,37 @@ $(document).ready(function () {
 
     //Блок настройки адреса и времени
     $('.ordering').click(function () {
-        if ($(window).width() > '582') {
-            $('#myModal').modal("hide");
-        } else {
-            $("#order_preference").fadeIn(400);
-        }
-        var now = new Date();
-        date=now.getFullYear()+'-'+('0'+(now.getMonth()+1)).slice(-2)+'-'+now.getDate();
-        time=(now.getHours()+1)+':'+now.getMinutes();
-        $(".date-input").val(date);
-        $(".date-input").attr("min",date);
-        $(".time-input").attr("min",time);
-        $(".time-input").val(time);
-        $(".address_block_order").hide();
-        $('.radiobt').click();
+        $.post("/PHPfuncs/Checkaut.php",
+                function (data) {
+                    if (data) {
+                        if ($(window).width() > '582') {
+                            $('#myModal').modal("hide");
+                        } else {
+                            $("#order_preference").fadeIn(400);
+                        }
+                        var now = new Date();
+                        date = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + now.getDate();
+                        time = (now.getHours() + 1) + ':' + ('0' + now.getMinutes()).slice(-2);
+                        $(".date-input").val(date);
+                        $(".date-input").attr("min", date);
+                       // $(".time-input").attr("min", time);
+                        $(".time-input").val(time);
+                        $(".address_block_order").hide();
+                        $('.radiobt').click();
+                    } else {
+                        notification("Для оформления заказа нужно зарегистрироваться!");
+                        setTimeout(function () {
+                            location.href = '/user';
+                        }, 1100);
+                    }
+                });
     });
 
     //Выбор адреса
     $('.radiobt').click(function () {
         if (this.getAttribute("value") === 'old') {
             $(".list_address").show();
+            $("#address_input").prop('required', false);
             $(".address_block_order").hide();
             $.post("/PHPfuncs/get_address.php",
                     {act: 1},
@@ -243,6 +254,7 @@ $(document).ready(function () {
                         });
                     });
         } else {
+            $("#address_input").prop('required', true);
             $(".list_address").hide();
             $(".address_block_order").show();
         }
@@ -385,9 +397,11 @@ $(document).ready(function () {
     $("#pass_again").keyup(function () {
         checkpass();
     });
+
     $("[name=pass]").keyup(function () {
         checkpass();
     });
+
     function checkpass() {
         if ($("#pass_again").val().length >= 8)
             if ($("#pass_again").val() === $("[name=pass]").val()) {

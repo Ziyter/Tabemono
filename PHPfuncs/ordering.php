@@ -5,6 +5,9 @@ session_start();
 require '../classSmarty.php';
 $db = classSmarty::getDB('user', 'user');
 $cart_str = filter_input(INPUT_COOKIE, "cart", FILTER_SANITIZE_SPECIAL_CHARS);
+$time = filter_input(INPUT_POST, "time", FILTER_SANITIZE_SPECIAL_CHARS);
+$date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_SPECIAL_CHARS);
+
 
 if (isset($_SESSION['name'])) {
     try {

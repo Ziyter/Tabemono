@@ -2,6 +2,8 @@ php_value session.gc_maxlifetime 86400
 php_value display_errors 1
 php_value display_startup_errors 1
 php_value error_reporting E_ALL
+php_flag display_errors on
+php_value error_reporting -1
 
 Options -Indexes 
 ### —жать ответ сервера дл€ перечисленных MIME типов

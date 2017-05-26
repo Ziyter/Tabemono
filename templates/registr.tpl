@@ -1,6 +1,6 @@
 <div id="login">
     <div class="container">
-        <form id="reg" action="PHPfuncs/action.php" method="post">
+        <form id="reg" action="/PHPfuncs/action.php" method="post">
             <div class="form-group row">
                 <label class="col-sm-5 col-lg-3 col-form-label">Имя *</label>
                 <div class="col-sm-7 col-lg-8">

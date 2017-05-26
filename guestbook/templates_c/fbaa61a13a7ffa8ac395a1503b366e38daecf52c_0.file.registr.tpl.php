@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-24 15:02:24
+/* Smarty version 3.1.30, created on 2017-05-26 15:55:28
   from "C:\openserver\domains\tabemono\templates\registr.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59257650a970e6_52760854',
+  'unifunc' => 'content_592825c01ee695_71790642',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fbaa61a13a7ffa8ac395a1503b366e38daecf52c' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\registr.tpl',
-      1 => 1495627341,
+      1 => 1495802327,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59257650a970e6_52760854 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592825c01ee695_71790642 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="login">
     <div class="container">
-        <form id="reg" action="PHPfuncs/action.php" method="post">
+        <form id="reg" action="/PHPfuncs/action.php" method="post">
             <div class="form-group row">
                 <label class="col-sm-5 col-lg-3 col-form-label">Имя *</label>
                 <div class="col-sm-7 col-lg-8">
@@ -55,7 +55,7 @@ function content_59257650a970e6_52760854 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </div>
             <div id="address_block" class="form-group row">
-                <label class="col-sm-5 col-lg-3 col-form-label">Адрес *</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" id="address" name="address" class="form-control" >
                 </div>

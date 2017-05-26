@@ -1,13 +1,17 @@
 <div id="modal_preference" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-header">Выберите время и адрес доставки
-            </div>
-            <div class="modal-body">
-                {include file='form_preference.tpl'}
-            </div>
-            <div class="modal-footer">ЛОЛ"
-            </div>
+            <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
+                <div class="modal-header">Выберите время и адрес доставки
+                </div>
+                <div class="modal-body">
+                    {include file='form_preference.tpl'}
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+                    <button  class="btn order" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

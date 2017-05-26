@@ -33,7 +33,10 @@
 <div id="right">
     <div id="order_preference" class='cart_block'>
         <center><h5>Выберите время и адрес доставки</h5></center>
+        <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
             {include file='form_preference.tpl'}
+            <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+        </form>
     </div>
     <p>  Всего товаров: <span id="count_items"></span><br>
             Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>

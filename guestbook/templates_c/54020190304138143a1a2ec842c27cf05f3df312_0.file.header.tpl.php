@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-25 17:15:15
+/* Smarty version 3.1.30, created on 2017-05-26 15:43:57
   from "C:\openserver\domains\tabemono\templates\header.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5926e6f32dc7f6_81309299',
+  'unifunc' => 'content_5928230d4b4f57_18850786',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '54020190304138143a1a2ec842c27cf05f3df312' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\header.tpl',
-      1 => 1495721683,
+      1 => 1495802633,
       2 => 'file',
     ),
   ),
@@ -21,20 +21,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:form_preference.tpl' => 1,
   ),
 ),false)) {
-function content_5926e6f32dc7f6_81309299 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5928230d4b4f57_18850786 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="modal_preference" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-header">Выберите время и адрес доставки
-            </div>
-            <div class="modal-body">
-                <?php $_smarty_tpl->_subTemplateRender("file:form_preference.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+            <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
+                <div class="modal-header">Выберите время и адрес доставки
+                </div>
+                <div class="modal-body">
+                    <?php $_smarty_tpl->_subTemplateRender("file:form_preference.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-            </div>
-            <div class="modal-footer">ЛОЛ"
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+                    <button  class="btn order" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

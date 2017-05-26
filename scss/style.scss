@@ -638,6 +638,7 @@ footer{
         padding: 10px;
     }
 }
+
 /*.btn-order:hover, .btn-black:focus {
     background-color: $backcolor_act*0.95; 
     color: #FFFFFF;
@@ -666,16 +667,17 @@ footer{
         margin-left:0px;
         margin-top: -48px;
     }
+
     #header1{
         padding-right: 0px;
         padding-left: 0px;
     }
+
     #contentB{
         margin-top: 48px;
     }
+
     #blockB{
-        //  overflow-x:hidden;
-        //  overflow-y:auto;
         margin-top:48px;
         margin: 0;
     }
@@ -749,9 +751,10 @@ footer{
     color: $backcolor_pas;
 }
 
-.btn.active, .btn:active { 
-    background-color: $backcolor_act;
+.btn.active,.btn.focus, .btn:active,.btn:focus { 
+    background-color: $backcolor_pas;
     color: #FFFFFF;
+    box-shadow: none !important;
 }
 
 .btn-orange { 
@@ -759,7 +762,6 @@ footer{
     color:#FFFFFF; 
     border-color:$backcolor_pas;
     cursor: pointer;
-
 } 
 
 .btn-orange:hover,.btn-orange:focus, .btn-black:focus {
@@ -792,7 +794,6 @@ footer{
         border: 1.4px solid $backcolor_pas;
         border-radius: 10px;
         -moz-border-radius: 10px;
-
     }
 
     #orders_table{
@@ -807,6 +808,7 @@ footer{
             }
         }
     }
+
     .orders_div{
         width: 90%;
         border: 1.5px solid $backcolor_pas;

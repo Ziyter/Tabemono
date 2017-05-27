@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 18:06:27
+/* Smarty version 3.1.30, created on 2017-05-27 13:17:17
   from "C:\openserver\domains\tabemono\templates\form_preference.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5928447391be82_59468452',
+  'unifunc' => 'content_5929522d131ac5_62909551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '98afbac6c11d06d7f665eee6e175d9cd6743c082' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\form_preference.tpl',
-      1 => 1495811130,
+      1 => 1495878627,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5928447391be82_59468452 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5929522d131ac5_62909551 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 Адрес<br>
 <center>
@@ -35,7 +35,7 @@ function content_5928447391be82_59468452 (Smarty_Internal_Template $_smarty_tpl)
         </label>
     </div>
 </center>
-<select class="form-control list_address">
+<select class="form-control list_address" name="address_list">
 </select>
 <div class="address_block_order"  class="form-group row">
     <input type="text" id="address_input" name="newaddress" placeholder="Введите новый адрес" class="form-control">

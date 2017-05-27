@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 15:55:28
+/* Smarty version 3.1.30, created on 2017-05-27 15:53:14
   from "C:\openserver\domains\tabemono\templates\registr.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592825c01ee695_71790642',
+  'unifunc' => 'content_592976ba82f3e4_80205858',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fbaa61a13a7ffa8ac395a1503b366e38daecf52c' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\registr.tpl',
-      1 => 1495802327,
+      1 => 1495882223,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_592825c01ee695_71790642 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592976ba82f3e4_80205858 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="login">
     <div class="container">
@@ -55,7 +55,7 @@ function content_592825c01ee695_71790642 (Smarty_Internal_Template $_smarty_tpl)
                 </div>
             </div>
             <div id="address_block" class="form-group row">
-                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" id="address" name="address" class="form-control" >
                 </div>

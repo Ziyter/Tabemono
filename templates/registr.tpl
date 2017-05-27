@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div id="address_block" class="form-group row">
-                <label class="col-sm-5 col-lg-3 col-form-label">Адрес</label>
+                <label class="col-sm-5 col-lg-3 col-form-label">Адрес *</label>
                 <div class="col-sm-7 col-lg-8">
                     <input required type="text" id="address" name="address" class="form-control" >
                 </div>

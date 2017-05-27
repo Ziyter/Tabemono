@@ -11,7 +11,7 @@
         </label>
     </div>
 </center>
-<select class="form-control list_address">
+<select class="form-control list_address" name="address_list">
 </select>
 <div class="address_block_order"  class="form-group row">
     <input type="text" id="address_input" name="newaddress" placeholder="Введите новый адрес" class="form-control">

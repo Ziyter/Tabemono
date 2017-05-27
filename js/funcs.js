@@ -9,6 +9,13 @@ $(document).ready(function () {
 
 //Появление корзины в модальном окне
     function win_size() {
+        if ($.cookie('ORDER') == "true") {
+            notification("Заказ успешно оформлен!");
+        } else
+        if ($.cookie('ORDER') == "false") {
+            notification("В информации о заказе найдены ошибки");
+        }
+        $.cookie('ORDER', " ");
         if ($(window).width() > '582') {
             $("#bt-cart").attr("data-toggle", "modal");
             $.cookie('MOBILE', false);
@@ -103,6 +110,7 @@ $(document).ready(function () {
 //-------------КОРЗИНА-----------///
 ///////////////////////////////////
 
+//Открытие корзины
     $("#bt-cart").click(function () {
         $.post(
                 "/PHPfuncs/showBasket.php",
@@ -124,8 +132,7 @@ $(document).ready(function () {
         function open_basket(obj, i) {
             $("#order_preference").hide();
             $(".items_elem").remove();
-            $("#cart_block").remove();
-            $("#emptyd").remove();
+            $(".blocked_cart").remove();
             if (obj.length > 0) {
                 var summa = 0;
                 var general_quantity = 0;
@@ -158,7 +165,7 @@ $(document).ready(function () {
                 });
             } else {
                 $("#right").prepend("<div class='cart_block' id='empty'><h3>Корзина пуста<br> Добавьте товары</h3></div>");
-                $(".modal-content").prepend("<div id='emptyd'><h4>Корзина пуста<br> Добавьте товары</h4></div>");
+                $(".modal-content").prepend("<div class='blocked_cart' id='emptyd'><h4>Корзина пуста<br> Добавьте товары</h4></div>");
             }
             $("#count_items").text(general_quantity);
             $("#summa_items").text(summa);
@@ -225,7 +232,7 @@ $(document).ready(function () {
                         time = (now.getHours() + 1) + ':' + ('0' + now.getMinutes()).slice(-2);
                         $(".date-input").val(date);
                         $(".date-input").attr("min", date);
-                       // $(".time-input").attr("min", time);
+                        $(".time-input").attr("min", time);
                         $(".time-input").val(time);
                         $(".address_block_order").hide();
                         $('.radiobt').click();
@@ -238,9 +245,21 @@ $(document).ready(function () {
                 });
     });
 
+    $('.date-input').change(function () {
+        var now = new Date();
+        var date = new Date($(this).val());
+        if (date > now) {
+            $(".time-input").removeAttr("min");
+        } else {
+            time = (now.getHours() + 1) + ':' + ('0' + now.getMinutes()).slice(-2);
+            $(".time-input").attr("min", time);
+        }
+    });
+
     //Выбор адреса
     $('.radiobt').click(function () {
         if (this.getAttribute("value") === 'old') {
+            $("[name=newaddress]").val("");
             $(".list_address").show();
             $("#address_input").prop('required', false);
             $(".address_block_order").hide();
@@ -250,7 +269,7 @@ $(document).ready(function () {
                         obj = jQuery.parseJSON(data);
                         $(".list_address").empty();
                         obj.forEach(function (entry) {
-                            $(".list_address").prepend("<option>" + entry.address + "</option>");
+                            $(".list_address").prepend("<option value='" + entry.id_address + "'>" + entry.address + "</option>");
                         });
                     });
         } else {
@@ -352,7 +371,7 @@ $(document).ready(function () {
         checkemail();
         if (!$("#email").hasClass("form-control-warning"))
             $.post(
-                    "../PHPfuncs/checkemail.php",
+                    "/PHPfuncs/checkemail.php",
                     {
                         email: $("#email").val()
                     },
@@ -439,6 +458,7 @@ $(document).ready(function () {
         }
         return verif;
     });
+
 //---------------------------------------
 //---------Поиск товаров
 //---------------------------------------

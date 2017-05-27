@@ -7,9 +7,24 @@ $db = classSmarty::getDB('user', 'user');
 $cart_str = filter_input(INPUT_COOKIE, "cart", FILTER_SANITIZE_SPECIAL_CHARS);
 $time = filter_input(INPUT_POST, "time", FILTER_SANITIZE_SPECIAL_CHARS);
 $date = filter_input(INPUT_POST, "date", FILTER_SANITIZE_SPECIAL_CHARS);
+$address_fromlist = filter_input(INPUT_POST, "address_list", FILTER_SANITIZE_SPECIAL_CHARS);
+$address_frominput = filter_input(INPUT_POST, "newaddress", FILTER_SANITIZE_SPECIAL_CHARS);
 
+if (empty($address_frominput)) {
+    $address = $address_fromlist;
+} else {
+    $address = $address_frominput;
+}
 
-if (isset($_SESSION['name'])) {
+if (isset($_SESSION['name']) && !empty($address) && !empty($date) && !empty($time)) {
+    $format = 'Y-m-d H:i';
+    $user_date = DateTime::createFromFormat($format, $date . " " . $time);
+    $current_date = DateTime::createFromFormat($format, date($format));
+    if ($current_date > $user_date) {
+        setcookie("ORDER", "false", time() + 3600, '/');
+        header('Location: /');
+        exit;
+    }
     try {
         if (!empty($cart_str)) {
             $cart = explode(",", $cart_str);
@@ -27,34 +42,42 @@ if (isset($_SESSION['name'])) {
             }
             $db->commit();
             setcookie("cart", '');
-            ordering($db);
+            ordering($db, $address, $date, $time);
         } else {
-            ordering($db);
+            ordering($db, $address, $date, $time);
         }
     } catch (PDOException $e) {
         $db->rollBack();
         echo "Ошибка: " . $e->getMessage();
     }
+    setcookie("ORDER", "true", time() + 3600, '/');
 } else {
-    echo true;
+    setcookie("ORDER", "false", time() + 3600, '/');
 }
+header('Location: /');
+exit;
 
-function ordering($db) {
+function ordering($db, $address, $date, $time) {
     $sum = 0;
     $st = $db->prepare("SELECT i.id_item,name,img,price,quantity "
             . "FROM item i INNER JOIN basket b ON b.id_item = i.id_item AND id_user=? ORDER BY time DESC");
     $st->bindParam(1, $_SESSION['id']);
     $st->execute();
     $row = $st->fetchAll();
+    if (!is_numeric($address)) {
+        $st = $db->prepare("INSERT INTO User_address VALUES ('',?,?);");
+        $st->execute(array($_SESSION['id'], $address));
+        $st = $db->prepare("select LAST_INSERT_ID();");
+        $st->execute();
+        $address = $st->fetch()[0];
+    }
     foreach ($row as $value) {
-        $sum += $value[price] * $value[quantity];
+        $sum += $value['price'] * $value['quantity'];
     }
     if ($sum != 0) {
         $db->beginTransaction();
-        $st = $db->prepare("CALL ordering(?,?)");
-        $st->bindParam(1, $_SESSION['id']);
-        $st->bindParam(2, $sum);
-        $st->execute();
+        $st = $db->prepare("CALL ordering(?,?,?,?)");
+        $st->execute(array($_SESSION['id'], $sum, $date . " " . $time, $address));
         $db->commit();
 
         $st = $db->prepare("SELECT id_order FROM orders_user WHERE id_order=(SELECT MAX(id_order) FROM orders_user WHERE id_user=?);");

@@ -8,7 +8,7 @@ $act = filter_input(INPUT_POST, "act", FILTER_VALIDATE_INT);
 
 if (isset($_SESSION['name'])) {
     if ($act == 1) {
-        $st = $db->prepare("SELECT address FROM User_address WHERE id_user=?;");
+        $st = $db->prepare("SELECT id_address,address FROM User_address WHERE id_user=?;");
         $st->execute(array($_SESSION['id']));
     }
     else{

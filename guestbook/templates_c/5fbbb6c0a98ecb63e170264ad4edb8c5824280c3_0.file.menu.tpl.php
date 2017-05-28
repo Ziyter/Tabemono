@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-26 16:01:05
+/* Smarty version 3.1.30, created on 2017-05-28 14:15:20
   from "C:\openserver\domains\tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59282711258e02_56761139',
+  'unifunc' => 'content_592ab1484634f6_63714367',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
     array (
       0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1495803658,
+      1 => 1495969971,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:form_preference.tpl' => 1,
   ),
 ),false)) {
-function content_59282711258e02_56761139 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592ab1484634f6_63714367 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -62,6 +62,7 @@ function content_59282711258e02_56761139 (Smarty_Internal_Template $_smarty_tpl)
             <?php $_smarty_tpl->_subTemplateRender("file:form_preference.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
+            <small>Дата и время может быть только в будущем</small>
             <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
         </form>
     </div>

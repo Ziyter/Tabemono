@@ -486,5 +486,11 @@ $(document).ready(function () {
             $('.notification_block').fadeOut('fast');
         }, 1000);
     }
+    
+   $('#search').keyup(function () {
+       var str=$(this).val();
+       val=str.replace(/х/g,'x');
+       $(this).val(val);
+    }); 
 }
 );

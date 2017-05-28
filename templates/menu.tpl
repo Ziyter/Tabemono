@@ -35,6 +35,7 @@
         <center><h5>Выберите время и адрес доставки</h5></center>
         <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
             {include file='form_preference.tpl'}
+            <small>Дата и время может быть только в будущем</small>
             <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
         </form>
     </div>

@@ -5,7 +5,10 @@
         </form>
     </div>
     {if $ORDER_INFO}
-        <h3>Товары в заказе № {$ID_ORDER}</h3>
+        <h4>Информация о заказе № {$ID_ORDER}</h4>
+        <h5>Дата доставки:</h5>{$ORDER_PREF.date_delivery}
+        <h5>Адрес доставки:</h5>{$ORDER_PREF.address}
+        <h5>Товары:</h5>
         {if $MOBILE}
             {foreach from=$ITEMS_LIST item=items}
                 <div class="orders_div">
@@ -32,67 +35,71 @@
             </table>
         {/if}
     {else}
-        <h3>Список заказов</h3>
-        {if $MOBILE}
-            {foreach from=$ORDERS_LIST item=items}
-                <div class="orders_div">
-                    <b>Заказ №</b> {$items.id_order}<br>
-                    <b>Сумма заказа:</b> {$items.summa} <f class="rubl">о</f><br> 
-                    <b>Время заказа:</b> {$items.date_order}<br>
-                    <b>Статус:</b> {$items.name_status}<br>
-                    <a href="/user/order/{$items.id_order}/">Подробнее...</a>
-                    {if $items.id_status == 1}
-                        <div id_order='{$items.id_order}' class='icons del_order del_basket_orange'></div>
-                    {/if}
-                </div>
-            {/foreach} 
-        {else}
-            <div id="order_div_table">
-                <table id="orders_table">
-                    <tr>
-                        <td>
-                            <b>Номер заказа</b>
-                        </td>
-                        <td>
-                            <b>Сумма заказа</b>
-                        </td>
-                        <td>
-                            <b>Дата заказа</b>
-                        </td>
-                        <td>
-                            <b>Статус</b>
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
-                    </tr>  
-                    {foreach from=$ORDERS_LIST item=items}
+        {if $ORDERS_LIST|@count>0}
+            <h3>Список заказов</h3>
+            {if $MOBILE}
+                {foreach from=$ORDERS_LIST item=items}
+                    <div class="orders_div">
+                        <b>Заказ №</b> {$items.id_order}<br>
+                        <b>Сумма заказа:</b> {$items.summa} <f class="rubl">о</f><br> 
+                        <b>Время заказа:</b> {$items.date_order}<br>
+                        <b>Статус:</b> {$items.name_status}<br>
+                        <a href="/user/order/{$items.id_order}/">Подробнее...</a>
+                        {if $items.id_status == 1}
+                            <div id_order='{$items.id_order}' class='icons del_order del_basket_orange'></div>
+                        {/if}
+                    </div>
+                {/foreach} 
+            {else}
+                <div id="order_div_table">
+                    <table id="orders_table">
                         <tr>
                             <td>
-                                № {$items.id_order}
+                                <b>Номер заказа</b>
                             </td>
                             <td>
-                        {$items.summa} <f class="rubl">о</f> 
-                        </td>
-                        <td>
-                            {$items.date_order}
-                        </td>
-                        <td>
-                            {$items.name_status}
-                        </td>
-                        <td>
-                            <a href="/user/order/{$items.id_order}/">Подробнее...</a>
-                        </td>
-                        <td>
-                            {if $items.id_status == 1}
-                                <div id_order='{$items.id_order}' class='icons del_order del_basket_orange'></div>
-                            {/if}
-                        </td>
+                                <b>Сумма заказа</b>
+                            </td>
+                            <td>
+                                <b>Дата заказа</b>
+                            </td>
+                            <td>
+                                <b>Статус</b>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
                         </tr>  
-                    {/foreach}
-                </table>
-            </div>
+                        {foreach from=$ORDERS_LIST item=items}
+                            <tr>
+                                <td>
+                                    № {$items.id_order}
+                                </td>
+                                <td>
+                            {$items.summa} <f class="rubl">о</f> 
+                            </td>
+                            <td>
+                                {$items.date_order}
+                            </td>
+                            <td>
+                                {$items.name_status}
+                            </td>
+                            <td>
+                                <a href="/user/order/{$items.id_order}/">Подробнее...</a>
+                            </td>
+                            <td>
+                                {if $items.id_status == 1}
+                                    <div id_order='{$items.id_order}' class='icons del_order del_basket_orange'></div>
+                                {/if}
+                            </td>
+                            </tr>  
+                        {/foreach}
+                    </table>
+                </div>
+            {/if}
+        {else}
+            <h3>Вы еще ничего не заказали</h3>
         {/if}
     {/if}
 </div>

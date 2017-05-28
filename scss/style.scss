@@ -780,6 +780,12 @@ footer{
 ///////////////////////////////////
 
 #orders_list{
+    
+    padding:5px;
+    
+    h5{
+        color: $backcolor_pas;
+    }
 
     .buttons{
         padding:10px;
@@ -828,8 +834,9 @@ footer{
         font-weight: bold;
     }
 
-    h3{
-        padding: 10px;
+    h4{
+        color: $backcolor_pas;
+        padding: 5px;
     }
 }
 
@@ -865,6 +872,7 @@ footer{
 #about{
     padding: 7px;
     margin-right:0px;
+    text-align: justify;
 
     @media (max-width:582px){
         .row{

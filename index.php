@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require 'classSmarty.php';
 $smarty = classSmarty::getSmarty();
@@ -39,7 +40,7 @@ if ($url != '/') {
 
 $db = classSmarty::getDB('user', 'user');
 
-if (isset($_SESSION['name']) && $_COOKIE['MOBILE']=='false') {
+if (isset($_SESSION['name']) && $_COOKIE['MOBILE'] == 'false') {
     $smarty->assign('NAME_USER', $_SESSION['name']);
 }
 
@@ -99,8 +100,14 @@ if (empty($module)) {
                         FROM item i INNER JOIN orders_items o ON o.id_item = i.id_item AND id_order=?;");
                         $st->bindParam(1, $params['order']);
                         $st->execute();
-                        $row = $st->fetchAll();
-                        $smarty->assign('ITEMS_LIST', $row);
+                        $row_items = $st->fetchAll();
+                        $st = $db->prepare("SELECT date_delivery,u.address FROM orders_user o INNER JOIN User_address u "
+                                . "on u.id_address = o.address AND id_order=?; ");
+                        $st->execute(array($params['order']));
+                        $order_info = $st->fetch();
+                        $order_info['date_delivery'] = month_replace($order_info['date_delivery']);
+                        $smarty->assign('ITEMS_LIST', $row_items);
+                        $smarty->assign('ORDER_PREF', $order_info);
                         $smarty->assign('ID_ORDER', $params['order']);
                     } catch (PDOException $e) {
                         echo "Ошибка: " . $e->getMessage();
@@ -204,21 +211,3 @@ if (empty($module)) {
 }
 $smarty->display('page.tpl');
 
-function month_replace($date) {
-    $date_c = strftime("%#d %b, %Y %H:%M", strtotime($date));
-    $replacements = array(
-        "Jan" => "января",
-        "Feb" => "февраля",
-        "Mar" => "марта",
-        "Apr" => "апреля",
-        "May" => "мая",
-        "Jun" => "июня",
-        "Jul" => "июля",
-        "Aug" => "августа",
-        "Sep" => "сентября",
-        "Oct" => "октября",
-        "Nov" => "ноября",
-        "Dec" => "декабря"
-    );
-    return strtr($date_c, $replacements);
-}

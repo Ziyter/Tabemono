@@ -90,6 +90,12 @@ function ordering($db, $address, $date, $time) {
         $st->execute(array($id_order));
         $info_items = $st->fetchAll();
 
+        $st = $db->prepare("SELECT date_delivery,u.address FROM orders_user o INNER JOIN User_address u "
+                . "on u.id_address = o.address AND id_order=?; ");
+        $st->execute(array($id_order));
+        $order_info = $st->fetch();
+        $order_info['date_delivery'] = month_replace($order_info['date_delivery']);
+
         $to = $_SESSION['email'];
         $subject = "Новый заказ № $id_order";
         $headers = "From: Tabemono <golubkov77@yandex.ru>\r\n";
@@ -109,8 +115,10 @@ function ordering($db, $address, $date, $time) {
         </tr>  ";
         }
         $message = "<html>"
-                . "<h3>Благодарим за заказ в магазине <font style='color:#f50'>Tabemono</font>.</h3><br>"
-                . "<h4 style='color:#f50'>Товары в заказе:</h4><br>"
+                . "<h3>Благодарим за заказ в магазине <font style='color:#f50'>Tabemono</font>.</h3>"
+                . "<h4 style='color:#f50'>Дата доставки:</h4>".$order_info['date_delivery']."<br>"
+                . "<h4 style='color:#f50'>Адрес доставки:</h4>".$order_info['address']."<br>"
+                . "<h4 style='color:#f50'>Товары в заказе:</h4>"
                 . "<table style='padding:5px; width:70%'>$items</table><br>"
                 . "<h5 style='color:#f50'>Сумма заказа: $sum руб.</h5><br>"
                 . "В ближайшее время с вами свяжется оператор для уточнения заказа."

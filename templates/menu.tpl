@@ -16,16 +16,15 @@
         <li><a href="/">Главная</a></li>
         <li class="dropdown">
             <a id="drop1" href="#" class="dropdown-toggle" data-toggle="collapse" data-target="#hide">
-                Меню
+                Категории
             </a>
             <ul id="hide" class="collapse in">
-                <li><a href="/category/cat/sushi/page/1">Суши</a></li>
                 <li><a href="/category/cat/rolls/page/1">Роллы</a></li>
+                <li><a href="/category/cat/hotrolls/page/1">Запеченные роллы</a></li>
                 <li class="divider"></li>
                 <li><a href="/category/cat/sets/page/1">Наборы</a></li>
             </ul>
         </li>
-        <li><a href="#">Акции</a></li>
         <li><a href="/contacts">Контакты</a></li>
         <li><a href="/about">О нас</a></li>
     </ul>
@@ -36,12 +35,12 @@
         <form id="ordering_preference_form" action="/PHPfuncs/ordering.php" method="post">
             {include file='form_preference.tpl'}
             <small>Дата и время может быть только в будущем</small>
-            <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+            <button type="submit" class="btn order col-md-5 col-sm-5">Заказать</button>
         </form>
     </div>
     <p>  Всего товаров: <span id="count_items"></span><br>
             Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
-            <button type="button" disabled="true" class="btn ordering order col-md-5 col-sm-5">Оформить заказ</button>
+            <button type="submit" disabled="true" class="btn ordering order col-md-5 col-sm-5">Оформить заказ</button>
             <small>Минимальная сумма заказа от 400<f class="rubl">о</f></small>
     </p>
     <table id="items_list">

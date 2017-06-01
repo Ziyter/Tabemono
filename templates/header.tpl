@@ -8,7 +8,7 @@
                     {include file='form_preference.tpl'}
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+                    <button type="submit" class="btn order  col-md-5 col-sm-5">Заказать</button>
                     <button  class="btn order" type="button" data-dismiss="modal">Закрыть</button>
                 </div>
             </form>

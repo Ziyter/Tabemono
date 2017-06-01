@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-29 18:08:42
-  from "C:\openserver\domains\tabemono\templates\registr.tpl" */
+/* Smarty version 3.1.30, created on 2017-06-01 15:57:24
+  from "C:\OpenServer\domains\Tabemono\templates\registr.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592c397a9f9044_44408729',
+  'unifunc' => 'content_59300f347d0534_43986264',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'fbaa61a13a7ffa8ac395a1503b366e38daecf52c' => 
+    '9a2175eee91539f81bc66088e6e760af71084aad' => 
     array (
-      0 => 'C:\\openserver\\domains\\tabemono\\templates\\registr.tpl',
+      0 => 'C:\\OpenServer\\domains\\Tabemono\\templates\\registr.tpl',
       1 => 1496070491,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_592c397a9f9044_44408729 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59300f347d0534_43986264 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="login">
     <div class="container">

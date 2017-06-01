@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-28 16:27:04
-  from "C:\openserver\domains\tabemono\templates\personal_cabinet.tpl" */
+/* Smarty version 3.1.30, created on 2017-05-31 13:07:04
+  from "C:\OpenServer\domains\Tabemono\templates\personal_cabinet.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592ad028e24ae3_27902618',
+  'unifunc' => 'content_592e95c85a7aa9_52208787',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '6958d233a49c36d5d1b35e2c7410caf1ef07354d' => 
+    'b021714623527b577edd4e5a5cc4f6b8f31d96bf' => 
     array (
-      0 => 'C:\\openserver\\domains\\tabemono\\templates\\personal_cabinet.tpl',
+      0 => 'C:\\OpenServer\\domains\\Tabemono\\templates\\personal_cabinet.tpl',
       1 => 1495976724,
       2 => 'file',
     ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_592ad028e24ae3_27902618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_592e95c85a7aa9_52208787 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="orders_list">
     <div class="buttons">

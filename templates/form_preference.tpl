@@ -1,4 +1,4 @@
-Адрес<br>
+Адрес <font style="color:red">*</font><br>
 <center>
     <div class="btn-group" data-toggle="buttons" >
         <label class="btn order radiobt rbold" value="new">

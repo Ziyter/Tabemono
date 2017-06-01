@@ -21,7 +21,7 @@
                     {$row.composition}
                 {/if}<br>
                 <span id="price">{$row.price} <f class="rubl">о</f> </span>
-                <div id_item="{$row.id_item}" act='1' class="icons plus addkorz">Беру</div>
+                <div id_item="{$row.id_item}" act='1' class="icons plus addkorz">Добавить</div>
             </div>
         </div>
     {/if}

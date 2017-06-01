@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-30 19:06:53
-  from "C:\openserver\domains\tabemono\templates\menu.tpl" */
+/* Smarty version 3.1.30, created on 2017-06-01 16:55:57
+  from "C:\OpenServer\domains\Tabemono\templates\menu.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_592d989d60b865_39334618',
+  'unifunc' => 'content_59301cedb81f06_27828121',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '5fbbb6c0a98ecb63e170264ad4edb8c5824280c3' => 
+    'cde49beb7ea6b873347fa22922da191b50e0ca1b' => 
     array (
-      0 => 'C:\\openserver\\domains\\tabemono\\templates\\menu.tpl',
-      1 => 1496160407,
+      0 => 'C:\\OpenServer\\domains\\Tabemono\\templates\\menu.tpl',
+      1 => 1496325347,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:form_preference.tpl' => 1,
   ),
 ),false)) {
-function content_592d989d60b865_39334618 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59301cedb81f06_27828121 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="sidebar">
     <div class="box">
@@ -62,12 +62,12 @@ function content_592d989d60b865_39334618 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
             <small>Дата и время может быть только в будущем</small>
-            <button type="submit" class="btn ordering order col-md-5 col-sm-5">Заказать</button>
+            <button type="submit" class="btn order col-md-5 col-sm-5">Заказать</button>
         </form>
     </div>
     <p>  Всего товаров: <span id="count_items"></span><br>
             Сумма заказа: <span id="summa_items"></span> <f class="rubl">о</f>
-            <button type="button" disabled="true" class="btn ordering order col-md-5 col-sm-5">Оформить заказ</button>
+            <button type="submit" disabled="true" class="btn ordering order col-md-5 col-sm-5">Оформить заказ</button>
             <small>Минимальная сумма заказа от 400<f class="rubl">о</f></small>
     </p>
     <table id="items_list">

@@ -2,9 +2,9 @@
 
 session_start();
 require '../classSmarty.php';
-$db= classSmarty::getDB('user', 'user');
+$db = classSmarty::getDB('user', 'user');
 
-ini_set("display_errors",1);
+ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
 if (isset($_SESSION['name'])) {
@@ -21,13 +21,13 @@ if (isset($_SESSION['name'])) {
             echo "Ошибка: " . $e->getMessage();
         }
     } else {
-        get_data();
+        get_data(true);
     }
 } else {
-    get_data();
+    get_data(false);
 }
 
-function get_data() {
+function get_data($del) {
     $cart_str = filter_input(INPUT_COOKIE, "cart", FILTER_SANITIZE_SPECIAL_CHARS);
     if (!empty($cart_str)) {
         $cart = explode(",", $cart_str);
@@ -36,11 +36,21 @@ function get_data() {
         $place_holders = implode(',', array_fill(0, count($cart), '?'));
 
         try {
-            $st = $GLOBALS['db']->prepare("SELECT * FROM item WHERE id_item in ($place_holders)");
+            $st = $GLOBALS['db']->prepare("SELECT id_item,name,price,img FROM item WHERE id_item in ($place_holders)");
             $st->execute($cart);
             $row = $st->fetchAll();
             foreach ($row as &$value) {
                 $value['quantity'] = $cart_count[$value['id_item']];
+            }
+            if ($del) {
+                setcookie("cart", '');
+                $time=round(microtime(true) * 1000);
+                $st = $GLOBALS['db']->prepare("delete from basket where id_user=?");
+                $st->execute(array($_SESSION['id']));
+                $st = $GLOBALS['db']->prepare("insert into basket values(?,?,?,?)");
+                foreach ($row as &$value) {
+                    $st->execute(array($_SESSION['id'], $value['id_item'], $value['quantity'],$time));
+                }
             }
             echo json_encode($row, JSON_UNESCAPED_UNICODE);
         } catch (PDOException $e) {

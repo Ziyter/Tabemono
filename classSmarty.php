@@ -5,15 +5,15 @@ class classSmarty {
     static $db;
 
     static function &getSmarty() {
-        define('SMARTY_DIR', 'C:\OpenServer\domains\tabemono\guestbook\libs/');
+        define('SMARTY_DIR', 'guestbook\libs/');
         require_once(SMARTY_DIR . 'Smarty.class.php');
 
         $smarty = new Smarty();
 
-        $smarty->template_dir = 'C:\openserver\domains\tabemono\templates/';
-        $smarty->compile_dir = 'C:\openserver\domains\tabemono\guestbook\templates_c/';
-        $smarty->config_dir = 'C:\openserver\domains\tabemono\guestbook\configs/';
-        $smarty->cache_dir = 'C:\openserver\domains\tabemono\guestbook\cache/';
+        $smarty->template_dir = 'templates/';
+        $smarty->compile_dir = 'guestbook\templates_c/';
+        $smarty->config_dir = 'guestbook\configs/';
+        $smarty->cache_dir = 'guestbook\cache/';
         $smarty->caching = false;
         $smarty->error_reporting = E_ALL & ~E_NOTICE;
         return $smarty;

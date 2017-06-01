@@ -49,9 +49,12 @@ if (empty($module)) {
 } else {
     switch ($module) {
         case 'index':
-            $st = $db->query("select * from item limit $str,4");
+            $st = $db->query("select * from item where id_category<>3 ORDER BY id_item DESC limit 4");
             $row = $st->fetchAll();
+            $st = $db->query("select id_item,img from item where id_category=3 ORDER BY id_item DESC limit 6");
+            $row_sets = $st->fetchAll();
             $smarty->assign('row', $row);
+            $smarty->assign('ROW_SETS', $row_sets);
             $smarty->assign('CSS', $css);
             $smarty->assign('JS', $js);
             $smarty->assign('TITLE', "Главная");
@@ -116,8 +119,9 @@ if (empty($module)) {
                 $smarty->assign('TITLE', "Личный кабинет");
                 $smarty->assign('TPL_NAME', "personal_cabinet");
             } else {
-                $smarty->assign('TITLE', "Вход");
+                $smarty->assign('TITLE', "Вход/Регистрация");
                 $smarty->assign('TPL_NAME', "login");
+                $smarty->assign('JS_HEAD', $js_captcha);
             }
             break;
         case 'item':
@@ -140,7 +144,7 @@ if (empty($module)) {
             $str = ($page !== '') ? ($page - 1) * 12 : 0;
             $smarty->assign('CAT_NAME', $cat_name);
             switch ($cat_name) {
-                case 'sushi':
+                case 'hotrolls':
                     $cat = 2;
                     $cat_name = 'Суши';
                     break;
@@ -165,19 +169,25 @@ if (empty($module)) {
                 $st->execute(array($cat));
                 $items_count = $st->fetch()[0];
                 $page_count = ceil($items_count / 12);
-                if ($page - 3 < 1) {
-                    $alpha = 1;
-                    $omega = 7;
-                } else {
-                    $alpha = $page - 3;
-
-                    if ($page + 3 > $page_count) {
-                        $omega = $page_count;
-                        $alpha = $page_count - 6;
+                if ($page > 7) {
+                    if ($page - 3 < 1) {
+                        $alpha = 1;
+                        $omega = 7;
                     } else {
-                        $omega = $page + 3;
+                        $alpha = $page - 3;
+
+                        if ($page + 3 > $page_count) {
+                            $omega = $page_count;
+                            $alpha = $page_count - 6;
+                        } else {
+                            $omega = $page + 3;
+                        }
                     }
+                } else {
+                    $alpha = 1;
+                    $omega = $page_count;
                 }
+
                 $smarty->assign('ALPHA', $alpha);
                 $smarty->assign('OMEGA', $omega);
                 $smarty->assign('PAGE', $page);

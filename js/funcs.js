@@ -40,6 +40,7 @@ $(document).ready(function () {
         });
     }
     ;
+
     try {
         //Инициализация слайда
         var owl = $('.owl-carousel');
@@ -145,7 +146,7 @@ $(document).ready(function () {
                     general_quantity += +quantity;
                     var inputnum = "<input id_item='" + id + "' class='inputnum' size='40' type='number' min='1' \n\
                                 max='20' value='" + quantity + "'>";
-                    var img = "<img  width='60' height='60' src='/img/goods/crop/" + entry.img + "'>";
+                    var img = "<a href='/item/id/" + entry.id_item + "/'><img  width='60' height='60' src='/img/goods/crop/" + entry.img + "'></a>";
                     if ($(window).width() <= '582') {
                         $("#items_list").append("<tr class='items_elem'>\n\
                             <td>" + img + "</td>\n\
@@ -224,11 +225,14 @@ $(document).ready(function () {
                     if (data) {
                         if ($(window).width() > '582') {
                             $('#myModal').modal("hide");
+                            $('#myModal').one('hidden.bs.modal', function () {
+                                $("#order_preference").fadeIn(400);
+                            });
                         } else {
                             $("#order_preference").fadeIn(400);
                         }
                         var now = new Date();
-                        date = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + now.getDate();
+                        date = now.getFullYear() + '-' + ('0' + (now.getMonth() + 1)).slice(-2) + '-' + ('0' + (now.getDate())).slice(-2);
                         time = (now.getHours() + 1) + ':' + ('0' + now.getMinutes()).slice(-2);
                         $(".date-input").val(date);
                         $(".date-input").attr("min", date);
@@ -261,7 +265,7 @@ $(document).ready(function () {
         if (this.getAttribute("value") === 'old') {
             $("[name=newaddress]").val("");
             $(".list_address").show();
-            $("#address_input").prop('required', false);
+            $("[name=newaddress]").prop('required', false);
             $(".address_block_order").hide();
             $.post("/PHPfuncs/get_address.php",
                     {act: 1},
@@ -273,34 +277,14 @@ $(document).ready(function () {
                         });
                     });
         } else {
-            $("#address_input").prop('required', true);
+            $("[name=newaddress]").prop('required', true);
             $(".list_address").hide();
             $(".address_block_order").show();
         }
     });
 
-    //Оформление заказа
-    $('.btn-order').click(function () {
-        $.post("/PHPfuncs/ordering.php",
-                function (data) {
-                    if (data) {
-                        notification("Для оформления заказа нужно зарегистрироваться!");
-                        setTimeout(function () {
-                            location.href = '/user';
-                        }, 1100);
-                    } else {
-                        notification("Заказ успешно офрмлен!");
-//                        move_menu("open-sidebarright");
-//                        $(".clcart").toggleClass("active");
-                        setTimeout(function () {
-                            location.href = '/user';
-                        }, 1100);
-                    }
-                });
-    });
-
     //Добавление в корзину
-    $('.icons').click(function () {
+    $('.addkorz').click(function () {
         id = this.getAttribute("id_item");
         act = this.getAttribute("act");
         $.post(
@@ -390,6 +374,8 @@ $(document).ready(function () {
             } else {
                 $("#emailblock").removeClass("has-warning");
                 $("#email").removeClass("form-control-warning");
+                $("#emailblock").removeClass("has-success");
+                $("#email").removeClass("form-control-success");
                 $("#emailblock").addClass("has-danger");
                 $("#email").addClass("form-control-danger");
                 $("#emaildes").text("Такой email уже зарегистрирован");
@@ -402,9 +388,19 @@ $(document).ready(function () {
         if (!isValidEmailAddress(mail)) {
             $("#emailblock").addClass("has-warning");
             $("#email").addClass("form-control-warning");
+            $("#emailblock").removeClass("has-danger");
+            $("#email").removeClass("form-control-danger");
+            $("#emailblock").removeClass("has-success");
+            $("#email").removeClass("form-control-success");
+            $("#emaildes").text("Неверный email адрес");
         } else {
             $("#emailblock").removeClass("has-warning");
             $("#email").removeClass("form-control-warning");
+            $("#emailblock").removeClass("has-danger");
+            $("#email").removeClass("form-control-danger");
+            $("#emailblock").removeClass("has-success");
+            $("#email").removeClass("form-control-success");
+            $("#emaildes").text("");
         }
     }
 
@@ -445,11 +441,12 @@ $(document).ready(function () {
     }
 
     $('.alert').hide();
+
     $('#reg').submit(function () {
         $('.alert').hide();
         var verif = true;
         if ($("#g-recaptcha-response").val() === "") {
-            $('#captcha').show();
+            $('.captcha').show();
             verif = false;
         }
         if (!$("#email").hasClass("form-control-success") || !$("[name=pass]").hasClass("form-control-success")) {
@@ -458,6 +455,17 @@ $(document).ready(function () {
         }
         return verif;
     });
+
+    $('#log').submit(function () {
+        $('.alert').hide();
+        var verif = true;
+        if ($(".g-recaptcha-response").val() === "") {
+            $('.captcha').show();
+            verif = false;
+        }
+        return verif;
+    });
+
 
 //---------------------------------------
 //---------Поиск товаров
@@ -486,11 +494,11 @@ $(document).ready(function () {
             $('.notification_block').fadeOut('fast');
         }, 1000);
     }
-    
-   $('#search').keyup(function () {
-       var str=$(this).val();
-       val=str.replace(/х/g,'x');
-       $(this).val(val);
-    }); 
+
+    $('#search').keyup(function () {
+        var str = $(this).val();
+        val = str.replace(/х/g, 'x');
+        $(this).val(val);
+    });
 }
 );
